@@ -1,0 +1,36 @@
+restrição de escrita das regras:
+
+    - começa pelo statement
+    - depois effect
+    - condicional ou transição
+
+restrição ao construir o diagrama:
+
+- ao chegar em um estado, a regra que pode ser escolhida não pode depender da saída do estado anterior - para isso, usar regra condicional e dois estados separados. Todas as regras daquele estado podem ser usadas ao gosto do jogador, não podendo ter uma regra que exclui a outra.
+
+======================
+
+regra de statement: serve para explicar um conceito ou uma regra. Geralmente é usado em pré-jogo para explicar um conceito estático / imutável
+
+regra efeito: serve para explicar um acontecimento durante o jogo provocado por alguma dinâmica.
+
+regra condicional: serve como uma regra de efeito condicional. Durante o jogo, caso haja efeitos que dependem de ações / condições dos jogadores, usá-la.
+
+regra de transição: serve para indicar ordem temporal / causal entre estados.
+
+======================
+
+estado inicial ->
+
+estado setup de jogo ->
+
+estado setup de turno -> 
+
+estado input de escolha de jogada -> desafio, bonus, ou outra intanciada.
+
+1. estado de jogada desafio ->
+    - regra condicional: condição de vitória ou derrota no desafio
+        - vitória: estado atualizar status sucesso
+        - derrota: estado atualizar status fracasso
+
+1.1 estado atualizar status sucesso -> goto input passar a vez

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64.345" height="100.092" viewBox="0 0 64.345 100.092">
+  <g id="Retângulo_40" data-name="Retângulo 40" transform="translate(0 100.092) rotate(-90)" fill="#fff" stroke="#21745b" stroke-width="3">
+    <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+    <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+  </g>
+  <g id="Grupo_7" data-name="Grupo 7" transform="translate(-7886.076 1139.418)">
+    <g id="Elipse_6" data-name="Elipse 6" transform="translate(7902 -1105.124)" fill="#f3f3f3" stroke="#888" stroke-width="4">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="14" fill="none"/>
+    </g>
+    <g id="Elipse_7" data-name="Elipse 7" transform="translate(7903 -1104.124)" fill="#f5f7f7" stroke="#c2bfbf" stroke-width="1">
+      <circle cx="15" cy="15" r="15" stroke="none"/>
+      <circle cx="15" cy="15" r="14.5" fill="none"/>
+    </g>
+    <g id="Polígono_13" data-name="Polígono 13" transform="translate(7931.222 -1097.752) rotate(90)" fill="rgba(0,0,0,0.3)">
+      <path d="M 15.98735809326172 13.92138195037842 L 0.871397078037262 13.92138195037842 L 8.429377555847168 0.9908337593078613 L 15.98735809326172 13.92138195037842 Z" stroke="none"/>
+      <path d="M 8.429377555847168 1.981675148010254 L 1.742802619934082 13.42138290405273 L 15.11595249176025 13.42138290405273 L 8.429377555847168 1.981675148010254 M 8.429377555847168 2.86102294921875e-06 L 16.85875701904297 14.42138195037842 L -1.9073486328125e-06 14.42138195037842 L 8.429377555847168 2.86102294921875e-06 Z" stroke="none" fill="#707070"/>
+    </g>
+    <g id="Retângulo_38" data-name="Retângulo 38" transform="translate(7917.089 -1097.958) rotate(45)" fill="rgba(0,143,33,0.3)" stroke="#707070" stroke-width="1">
+      <rect width="12.187" height="12.593" stroke="none"/>
+      <rect x="0.5" y="0.5" width="11.187" height="11.593" fill="none"/>
+    </g>
+    <g id="Polígono_14" data-name="Polígono 14" transform="translate(7912.457 -1094.294)" fill="rgba(102,249,190,0.3)">
+      <path d="M 8.456350326538086 7.21846342086792 L 0.8870829343795776 7.21846342086792 L 4.671716690063477 0.9656176567077637 L 8.456350326538086 7.21846342086792 Z" stroke="none"/>
+      <path d="M 4.671716690063477 1.93123197555542 L 1.774168968200684 6.71846342086792 L 7.56926441192627 6.71846342086792 L 4.671716690063477 1.93123197555542 M 4.671716690063477 3.337860107421875e-06 L 9.343436241149902 7.71846342086792 L -2.86102294921875e-06 7.71846342086792 L 4.671716690063477 3.337860107421875e-06 Z" stroke="none" fill="#707070"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="133" height="126.676" viewBox="0 0 133 126.676">
+  <rect id="Retângulo_43" data-name="Retângulo 43" width="109" height="12" rx="1" transform="translate(17 69.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_44" data-name="Retângulo 44" width="106" height="12" rx="1" transform="translate(9 80.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_49" data-name="Retângulo 49" width="87" height="12" rx="1" transform="translate(14 91.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_51" data-name="Retângulo 51" width="53" height="12" rx="1" transform="translate(27 104.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_53" data-name="Retângulo 53" width="9" height="9" rx="1" transform="translate(34 117.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_52" data-name="Retângulo 52" width="59" height="12" rx="1" transform="translate(28 3.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_50" data-name="Retângulo 50" width="87" height="12" rx="1" transform="translate(19 14.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_45" data-name="Retângulo 45" width="106" height="12" rx="1" transform="translate(0 58.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_46" data-name="Retângulo 46" width="106" height="12" rx="1" transform="translate(7 47.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_47" data-name="Retângulo 47" width="113" height="12" rx="1" transform="translate(20 36.676)" fill="#b9b9b9"/>
+  <rect id="Retângulo_48" data-name="Retângulo 48" width="106" height="12" rx="1" transform="translate(4 25.676)" fill="#b9b9b9"/>
+  <g id="Grupo_8" data-name="Grupo 8" transform="translate(-8036 891.676)">
+    <g id="Retângulo_41" data-name="Retângulo 41" transform="translate(8045.364 -804.994) rotate(-60)" fill="#2d5c30" stroke="#21745b" stroke-width="3">
+      <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+      <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+    </g>
+    <g id="Retângulo_42" data-name="Retângulo 42" transform="matrix(0.259, -0.966, 0.966, 0.259, 8054.22, -792.235)" fill="#2d5c30" stroke="#21745b" stroke-width="3">
+      <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+      <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+    </g>
+    <g id="Retângulo_40" data-name="Retângulo 40" transform="translate(8054.076 -782.203) rotate(-90)" fill="#fff" stroke="#21745b" stroke-width="3">
+      <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+      <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+    </g>
+    <g id="Grupo_7" data-name="Grupo 7" transform="translate(168 257.124)">
+      <g id="Elipse_6" data-name="Elipse 6" transform="translate(7902 -1105.124)" fill="#f3f3f3" stroke="#888" stroke-width="4">
+        <circle cx="16" cy="16" r="16" stroke="none"/>
+        <circle cx="16" cy="16" r="14" fill="none"/>
+      </g>
+      <g id="Elipse_7" data-name="Elipse 7" transform="translate(7903 -1104.124)" fill="#f5f7f7" stroke="#c2bfbf" stroke-width="1">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="14.5" fill="none"/>
+      </g>
+      <g id="Polígono_13" data-name="Polígono 13" transform="translate(7931.222 -1097.752) rotate(90)" fill="rgba(0,0,0,0.3)">
+        <path d="M 15.98735809326172 13.92138195037842 L 0.871397078037262 13.92138195037842 L 8.429377555847168 0.9908337593078613 L 15.98735809326172 13.92138195037842 Z" stroke="none"/>
+        <path d="M 8.429377555847168 1.981675148010254 L 1.742802619934082 13.42138290405273 L 15.11595249176025 13.42138290405273 L 8.429377555847168 1.981675148010254 M 8.429377555847168 2.86102294921875e-06 L 16.85875701904297 14.42138195037842 L -1.9073486328125e-06 14.42138195037842 L 8.429377555847168 2.86102294921875e-06 Z" stroke="none" fill="#707070"/>
+      </g>
+      <g id="Retângulo_38" data-name="Retângulo 38" transform="translate(7917.089 -1097.958) rotate(45)" fill="rgba(0,143,33,0.3)" stroke="#707070" stroke-width="1">
+        <rect width="12.187" height="12.593" stroke="none"/>
+        <rect x="0.5" y="0.5" width="11.187" height="11.593" fill="none"/>
+      </g>
+      <g id="Polígono_14" data-name="Polígono 14" transform="translate(7912.457 -1094.294)" fill="rgba(102,249,190,0.3)">
+        <path d="M 8.456350326538086 7.21846342086792 L 0.8870829343795776 7.21846342086792 L 4.671716690063477 0.9656176567077637 L 8.456350326538086 7.21846342086792 Z" stroke="none"/>
+        <path d="M 4.671716690063477 1.93123197555542 L 1.774168968200684 6.71846342086792 L 7.56926441192627 6.71846342086792 L 4.671716690063477 1.93123197555542 M 4.671716690063477 3.337860107421875e-06 L 9.343436241149902 7.71846342086792 L -2.86102294921875e-06 7.71846342086792 L 4.671716690063477 3.337860107421875e-06 Z" stroke="none" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

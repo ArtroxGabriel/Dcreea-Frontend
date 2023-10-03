@@ -1,0 +1,24 @@
+#canvas {
+  border: 2px solid #dedede;
+  width: 100%;
+}
+
+.stage {
+  /* Used to position the overlay */
+  width: 100%;
+  position: relative;
+}
+
+.stage__overlay {
+  right: -105;
+  position: absolute;
+  top: -15;
+
+  /* Take full size */
+  width: 100%;
+
+  /* Center the content */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}

@@ -1,0 +1,192 @@
+<div class="clr-col-12">
+  <div class="content-area">
+    <div class="card">
+      <div class="card-block">
+        <!-- deck config -->
+        <!-- deck config -->
+        <!-- deck config -->
+
+        <div class="clr-row">
+          <!-- toggles  -->
+          <div class="clr-col-6" #cardContainer>
+            <div class="clr-row">
+              <app-card
+                *ngIf="deckSelected"
+                [deck]="deckSelected"
+                [card]="cardDefault"
+                [cardWidth]="cardWidth"
+                marginBetwCards="25"
+                marginLeft="15"
+                [back]="
+                  deckSelected.deckBack.title ||
+                  deckSelected.deckBack.answers ||
+                  deckSelected.deckBack.effect ||
+                  deckSelected.deckBack.cost ||
+                  deckSelected.deckBack.level ||
+                  deckSelected.deckBack.earning
+                "
+              ></app-card>
+            </div>
+            <div class="clr-row">
+              <div class="clr-col-6">
+                <div class="card" style="height: 90%">
+                  <div class="card-block">
+                    <clr-toggle-container>
+                      <label
+                        >Card Front
+                        <span
+                          ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                            <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                            <span class="tooltip-content">To understand the meaning of this fields, please, visit the help page.</span>
+                          </a></span
+                        ></label
+                      >
+                      <clr-toggle-wrapper *ngFor="let item of deckSelected.deckFront | keyvalue">
+                        <input
+                          *ngIf="item.key != '_id'"
+                          type="checkbox"
+                          clrToggle
+                          [name]="item.key"
+                          [value]="deckSelected.deckFront[item.value]"
+                          [(ngModel)]="deckSelected.deckFront[item.key]"
+                        />
+                        <label *ngIf="item.key != '_id'">{{ item.key }}</label>
+                      </clr-toggle-wrapper>
+                      <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+                    </clr-toggle-container>
+                  </div>
+                </div>
+              </div>
+              <div class="clr-col-6">
+                <div class="card" style="height: 90%">
+                  <div class="card-block">
+                    <clr-toggle-container>
+                      <label>Card Back</label>
+                      <clr-toggle-wrapper *ngFor="let item of deckSelected.deckBack | keyvalue">
+                        <input
+                          *ngIf="item.key != '_id'"
+                          type="checkbox"
+                          clrToggle
+                          [name]="item.key"
+                          [value]="deckSelected.deckBack[item.value]"
+                          [(ngModel)]="deckSelected.deckBack[item.key]"
+                        />
+                        <label *ngIf="item.key != '_id'">{{ item.key }}</label>
+                      </clr-toggle-wrapper>
+                      <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+                    </clr-toggle-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="clr-row">
+                  <div class="clr-col-9">Select a Deck</div>
+                  <div class="clr-col-3">
+                    <button class="btn btn-primary float-items-right" (click)="clearDeckRequest()">
+                      <cds-icon shape="plus" size="md"></cds-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-block">
+                <div class="clr-row">
+                  <div *ngFor="let d of game.decks; let i = index" id="{{ 'deck-' + i }}" class="clr-col-2 btn-deck-wrapper">
+                    <button
+                      [ngStyle]="{ 'background-color': d.color }"
+                      class="btn btn-primary btn-deck horizontal-center-input"
+                      (click)="selectDeck(i)"
+                    ></button>
+                    {{ d.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- deck info edit  -->
+            <!-- deck info edit  -->
+            <!-- deck info edit  -->
+            <div class="card">
+              <div *ngIf="deckSelected._id" class="card-header">Edit Deck's Info</div>
+              <div *ngIf="!deckSelected._id" class="card-header">Create Deck</div>
+              <div class="card-block">
+                <form clrForm>
+                  <div class="clr-row">
+                    <div class="clr-col-6">
+                      <clr-input-container>
+                        <label>Name</label>
+                        <input
+                          clrInput
+                          name="name"
+                          style="margin-left: 3rem"
+                          type="text"
+                          placeholder="name..."
+                          maxlength="20"
+                          [(value)]="deckSelected.name"
+                          [(ngModel)]="deckSelected.name"
+                          required
+                        />
+                        <clr-control-error>required!</clr-control-error>
+                      </clr-input-container>
+                    </div>
+                    <div class="clr-col-6">
+                      <div style="margin-top: 1rem">
+                        <label>Deck Color</label>
+                        <input
+                          style="margin-left: 0px; width: 2rem"
+                          class="color-picker"
+                          [(colorPicker)]="deckSelected.color"
+                          [style.background]="deckSelected.color"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <clr-textarea-container>
+                    <label>Description</label>
+                    <textarea
+                      clrTextarea
+                      class="input-no-space"
+                      placeholder="description"
+                      [(ngModel)]="deckSelected.description"
+                      name="deckSelected.description"
+                      maxlength="250"
+                      rows="11"
+                      required
+                    ></textarea>
+                    <clr-control-error>required!</clr-control-error>
+                  </clr-textarea-container>
+                </form>
+              </div>
+              <div class="card-footer">
+                <div class="clr-row">
+                  <div class="clr-col-8">
+                    <button *ngIf="deckIndex >= 0" class="btn btn-danger float-items-right" (click)="onDeleteDeck()">Delete</button>
+                  </div>
+                  <div class="clr-col-4">
+                    <button class="btn btn-danger float-items-right" (click)="clearDeckRequest()">Clear</button>
+                    <button class="btn btn-primary float-items-right" (click)="saveDeck()">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-modal [(clrModalOpen)]="showDeletePopup">
+  <h3 class="modal-title"></h3>
+  <div class="modal-body">
+    <h3>Are you sure you want to delete this Deck?</h3>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger float-items-right" (click)="deleteDeck()">Delete</button>
+  </div>
+</clr-modal>

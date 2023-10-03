@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116.698" height="118.989" viewBox="0 0 116.698 118.989">
+  <g id="Retângulo_35" data-name="Retângulo 35" transform="matrix(0.545, -0.839, 0.839, 0.545, 4.11, 83.944)" fill="#2d5c30" stroke="#21745b" stroke-width="3">
+    <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+    <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+  </g>
+  <g id="Retângulo_36" data-name="Retângulo 36" transform="matrix(0.719, -0.695, 0.695, 0.719, 0, 71.116)" fill="#fff" stroke="#21745b" stroke-width="3">
+    <rect width="100.092" height="64.345" rx="3" stroke="none"/>
+    <rect x="1.5" y="1.5" width="97.092" height="61.345" rx="1.5" fill="none"/>
+  </g>
+  <g id="Polígono_9" data-name="Polígono 9" transform="translate(84.787 40.847) rotate(90)" fill="rgba(0,0,0,0.3)">
+    <path d="M 31.84386444091797 27.73098182678223 L 1.742793440818787 27.73098182678223 L 16.7933292388916 1.981671929359436 L 31.84386444091797 27.73098182678223 Z" stroke="none"/>
+    <path d="M 16.7933292388916 3.963352203369141 L 3.485593795776367 26.73097991943359 L 30.10106468200684 26.73097991943359 L 16.7933292388916 3.963352203369141 M 16.7933292388916 0 L 33.5866584777832 28.73098182678223 L 0 28.73098182678223 L 16.7933292388916 0 Z" stroke="none" fill="#707070"/>
+  </g>
+  <g id="Retângulo_34" data-name="Retângulo 34" transform="translate(56.631 40.436) rotate(45)" fill="rgba(0,143,33,0.3)" stroke="#707070" stroke-width="2">
+    <rect width="24.28" height="25.089" stroke="none"/>
+    <rect x="1" y="1" width="22.28" height="23.089" fill="none"/>
+  </g>
+  <g id="Polígono_10" data-name="Polígono 10" transform="translate(47.401 47.736)" fill="rgba(102,249,190,0.3)">
+    <path d="M 16.84025573730469 14.3770227432251 L 1.77418053150177 14.3770227432251 L 9.307218551635742 1.931235551834106 L 16.84025573730469 14.3770227432251 Z" stroke="none"/>
+    <path d="M 9.307218551635742 3.862459182739258 L 3.548356056213379 13.37702178955078 L 15.06608009338379 13.37702178955078 L 9.307218551635742 3.862459182739258 M 9.307218551635742 1.9073486328125e-06 L 18.61443901062012 15.3770227432251 L -1.9073486328125e-06 15.3770227432251 L 9.307218551635742 1.9073486328125e-06 Z" stroke="none" fill="#707070"/>
+  </g>
+</svg>

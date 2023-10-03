@@ -1,0 +1,49 @@
+<div class="clr-col-12">
+  <div class="content-area">
+    <div class="card">
+      <div class="card-header">
+        <div class="clr-row">
+          <div class="clr-col-10">My Projects (games {{ games ? games.length : "cu" }} )</div>
+          <div class="clr-col-2"><button class="btn btn-primary float-items-right" (click)="onCreate()">Create new</button></div>
+        </div>
+      </div>
+      <div class="card-block">
+        <clr-datagrid>
+          <clr-dg-column>Game</clr-dg-column>
+          <clr-dg-column>Authors</clr-dg-column>
+          <clr-dg-column>Description</clr-dg-column>
+
+          <clr-dg-row *clrDgItems="let game of games; let i = index">
+            <clr-dg-action-overflow>
+              <button class="action-item" (click)="editGame(i)">Edit</button>
+              <button class="action-item" (click)="deleteGame(i)">Delete</button>
+            </clr-dg-action-overflow>
+            <clr-dg-cell>{{ game.name }}</clr-dg-cell>
+            <clr-dg-cell>{{ game.authors }}</clr-dg-cell>
+            <clr-dg-cell>{{ game.description }}</clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer>{{ games.length }} games</clr-dg-footer>
+        </clr-datagrid>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-modal [(clrModalOpen)]="openCreateGame">
+  <h3 class="modal-title">Create a Game</h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede; border-bottom: 1px solid #dedede">
+    <div class="card-block">
+      <form clrForm>
+        <clr-input-container>
+          <label>Game Name</label>
+          <input placeholder="game..." clrInput name="name" value="request.name" [(ngModel)]="request.name" type="text" required />
+          <clr-control-error>required!</clr-control-error>
+        </clr-input-container>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary float-items-right" (click)="createGame()">Add</button>
+  </div>
+</clr-modal>

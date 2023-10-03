@@ -1,0 +1,221 @@
+<div>
+  <div class="clr-row">
+    <div class="clr-col-5">
+      <div class="card">
+        <div class="card-header">{{ OperationLabel }} State Form</div>
+        <div class="card-block">
+          <form clrForm>
+            <clr-input-container>
+              <label>Label</label>
+              <input
+                clrInput
+                name="label"
+                type="text"
+                placeholder="Label..."
+                [(value)]="stateSelected.label"
+                [(ngModel)]="stateSelected.label"
+                required
+              />
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+
+            <clr-textarea-container>
+              <label
+                >Purpose
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content">Every state must have a purpose. What this state does? Why do you need this state?</span>
+                  </a></span
+                ></label
+              >
+              <textarea clrTextarea [(ngModel)]="stateSelected.purpose" name="stateSelected.purpose" required></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+            <div>
+              <div>
+                <label
+                  >Color
+                  <span
+                    ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                      <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                      <span class="tooltip-content">The color of the state in the diagram</span>
+                    </a></span
+                  ></label
+                >
+              </div>
+              <div style="padding: 1rem 0px; margin: 0px">
+                <input
+                  class="color-picker"
+                  cpPosition="bottom-right"
+                  [(colorPicker)]="stateSelected.color"
+                  [style.background]="stateSelected.color"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="clr-row">
+            <div class="clr-col-7"></div>
+            <div class="clr-col-5">
+              <button class="btn btn-danger float-items-right" (click)="clearRequest()">Clear</button>
+              <button class="btn btn-primary float-items-right" (click)="saveState()">Save State</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Rules For This State</div>
+        <div class="card-block">
+          <clr-tabs>
+            <clr-tab>
+              <button clrTabLink>Statement Rules</button>
+              <clr-tab-content *clrIfActive="true">
+                <div class="clr-row">
+                  <div class="clr-col-10"></div>
+                  <div class="clr-col-2">
+                    <div *ngIf="!addNewSTRule">
+                      <button class="btn btn-primary float-items-right" (click)="addSTRule()">
+                        <cds-icon shape="plus" size="sm"></cds-icon>
+                      </button>
+                    </div>
+                    <div *ngIf="addNewSTRule">
+                      <button class="btn btn-danger float-items-right" (click)="dellSTRule()">
+                        <cds-icon shape="minus" size="sm"></cds-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <app-statement-rule
+                  *ngIf="stateSelected.statementRules"
+                  [state]="stateSelected"
+                  [addNewRule]="addNewSTRule"
+                  (saveStatementRule)="onSaveStatementRule($event)"
+                  (deleteStatementRule)="onDeleteStatementRule($event)"
+                ></app-statement-rule>
+              </clr-tab-content>
+            </clr-tab>
+
+            <clr-tab>
+              <button clrTabLink>Transition Rule</button>
+              <clr-tab-content *clrIfActive>
+                <clr-toggle-container>
+                  <clr-toggle-wrapper>
+                    <input type="checkbox" clrToggle name="options" required value="false" [(ngModel)]="isConditionalRule" />
+                    <label
+                      >Conditional Rule?
+                      <span
+                        ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                          <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                          <span class="tooltip-content"
+                            >Check this if your rule looks like 'IF condition THEN do something ELSE do other things'</span
+                          >
+                        </a></span
+                      ></label
+                    >
+                  </clr-toggle-wrapper>
+                  <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+                </clr-toggle-container>
+
+                <app-conditional-rule
+                  *ngIf="isConditionalRule"
+                  [state]="stateSelected"
+                  [game]="game"
+                  (saveConditionalRule)="onSaveConditionalRule($event)"
+                  (deleteCondition)="onDeleteCondition($event)"
+                ></app-conditional-rule>
+
+                <!-- transition option -->
+
+                <div class="card" *ngIf="!isConditionalRule">
+                  <div class="card-header">
+                    Transition
+                    <span
+                      ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                        <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                        <span class="tooltip-content"
+                          >This type of transition happens after the statement rules are applied and there is no condition rule</span
+                        >
+                      </a></span
+                    >
+                  </div>
+                  <div class="card-block">
+                    <clr-select-container>
+                      <label
+                        >Go to State
+                        <span
+                          ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                            <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                            <span class="tooltip-content">The state to go after this state is finished</span>
+                          </a></span
+                        ></label
+                      >
+                      <select clrSelect name="transition" [(ngModel)]="stateSelected.transition">
+                        <option [ngValue]="" disabled selected>select state</option>
+                        <option *ngFor="let st of game.states" [value]="st.label">
+                          {{ st.label }}
+                        </option>
+                      </select>
+                      <clr-control-error>required!</clr-control-error>
+                    </clr-select-container>
+                  </div>
+                  <div class="card-footer">
+                    <div class="clr-row">
+                      <div class="clr-col-8"></div>
+                      <div class="clr-col-4">
+                        <button class="btn btn-primary float-items-right" (click)="onSaveTransitionRule()">Save Rule</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </clr-tab-content>
+            </clr-tab>
+          </clr-tabs>
+        </div>
+      </div>
+    </div>
+    <div class="clr-col-7">
+      <div class="card">
+        <div class="card-header">States List</div>
+        <div class="card-block">
+          <clr-datagrid style="height: 100%">
+            <clr-dg-placeholder>We couldn't find any state</clr-dg-placeholder>
+            <clr-dg-column>Label</clr-dg-column>
+            <clr-dg-column>Purpose</clr-dg-column>
+            <clr-dg-column>Conditional?</clr-dg-column>
+
+            <clr-dg-row *clrDgItems="let state of game.states; let i = index">
+              <clr-dg-action-overflow>
+                <button class="action-item" (click)="onEdit(i)">Edit</button>
+                <button class="action-item" (click)="onDelete(i)">Delete</button>
+              </clr-dg-action-overflow>
+
+              <clr-dg-cell>{{ state.label }}</clr-dg-cell>
+              <clr-dg-cell>{{ state.purpose }}</clr-dg-cell>
+              <clr-dg-cell>{{ state.conditionalRule != null }}</clr-dg-cell>
+            </clr-dg-row>
+
+            <clr-dg-footer>{{ game.states.length }} states</clr-dg-footer>
+          </clr-datagrid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-modal [(clrModalOpen)]="showDeletePopup">
+  <h3 class="modal-title">Delete State</h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede">
+    <p style="font-weight: 800" *ngIf="canIDelete">Are you sure you want to delete this?</p>
+    <div *ngIf="!canIDelete">
+      <p style="color: tomato">Warn: To delete this state, no other state can point to this. Please, update the states and try again.</p>
+      <p>The dependencies for this state are:</p>
+      <p>{{ getStateDependencies().join(", ") }}</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger float-items-right" (click)="deleteState()" [disabled]="!canIDelete">Delete</button>
+  </div>
+</clr-modal>

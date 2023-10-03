@@ -1,0 +1,12 @@
+<div class="clr-row">
+  <div class="stage">
+    <!-- <button class="btn btn-primary float-items-right" (click)="goDeep()">Get Breadth</button>
+        
+        <p>{{ graphBreadth }}</p> -->
+
+    <canvas id="canvas" #canvas></canvas>
+  </div>
+  <div class="stage__overlay">
+    <button *ngIf="showSaveBtn" class="btn btn-primary float-items-right" (click)="save()">Save</button>
+  </div>
+</div>

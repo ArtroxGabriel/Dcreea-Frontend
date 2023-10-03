@@ -1,0 +1,259 @@
+<div class="card" *ngIf="addNewRule">
+  <div class="card-header">
+    <div class="clr-row">
+      <div class="clr-col-8">
+        Statement Rules
+        <span
+          ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+            <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+            <span class="tooltip-content"
+              >This type of rule describes what happens in this state as a set of facts. Example: 'The player draws 2 cards from deck
+              X'</span
+            >
+          </a></span
+        >
+      </div>
+      <div class="clr-col-4"></div>
+    </div>
+  </div>
+  <div class="card-block">
+    <div class="clr-col-12">
+      <form clrForm>
+        <div class="clr-row">
+          <!-- frente do cartão -->
+
+          <div class="clr-col-12">
+            <clr-input-container>
+              <label>Label</label>
+              <input clrInput name="label" type="text" placeholder="Label..." [(value)]="rule.label" [(ngModel)]="rule.label" required />
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+
+            <clr-textarea-container>
+              <label
+                >Rule Description
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >Describe briefly the statement/fact/what happens in this rule. Example: 'The player draws 2 cards from deck X'</span
+                    >
+                  </a></span
+                ></label
+              >
+              <textarea clrTextarea [(ngModel)]="rule.simplerDescription" name="rule.simplerDescription" required></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+
+            <clr-toggle-container>
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" value="false" required [(ngModel)]="specificStatement" />
+                <label
+                  >More precise statement?
+                  <span
+                    ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                      <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                      <span class="tooltip-content">If you want to describe the rule in a formal way, check this</span>
+                    </a></span
+                  ></label
+                >
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+            </clr-toggle-container>
+          </div>
+          <!-- saida frente   -->
+        </div>
+
+        <!-- trás do cartão -->
+        <div class="clr-row" *ngIf="specificStatement" style="border-top: 1px solid #dedede; padding-top: 2.5rem; margin-top: 2rem">
+          <div class="clr-col-12">
+            <clr-input-container>
+              <label
+                >Me,
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content">Who executes the action on someone (maybe myself)</span>
+                  </a></span
+                ></label
+              >
+              <input clrInput name="me" type="text" placeholder="me..." value="rule.me" [(ngModel)]="rule.me" required />
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+
+            <clr-textarea-container>
+              <label
+                >Aiming
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >The purpose/objective of this act. Example: To prevent the player to have too few cards in hand</span
+                    >
+                  </a></span
+                ></label
+              >
+              <textarea clrTextarea [(ngModel)]="rule.to" name="rule.to" required></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+            <clr-textarea-container>
+              <label
+                >Given that
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >The pre-conditions to this rule happen. Example: The player who uses this cannot have more than 7 cards on hand</span
+                    >
+                  </a></span
+                ></label
+              >
+              <textarea clrTextarea [(ngModel)]="rule.given" name="rule.given"></textarea>
+            </clr-textarea-container>
+
+            <clr-textarea-container>
+              <label
+                >Status Change
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >Describes what changes, what the effect does. Example: 'The player draws 2 cards from deck X'</span
+                    >
+                  </a></span
+                ></label
+              >
+              <textarea
+                clrTextarea
+                [(ngModel)]="rule.statusChange"
+                name="rule.statusChange"
+                placeholder="What changes If Tests true?"
+                required
+              ></textarea>
+              <clr-control-helper>Describe what changes on the affected</clr-control-helper>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+
+            <clr-toggle-container>
+              <label
+                >Effect duration
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >How long this effect lasts? You can choose from two types: for a few turns or permanent</span
+                    >
+                  </a></span
+                ></label
+              >
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="rule.forever" />
+                <label>For the rest of the game</label>
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another rule, however</clr-control-helper> -->
+            </clr-toggle-container>
+
+            <clr-input-container *ngIf="!rule.forever">
+              <label>Turns</label>
+              <input
+                clrInput
+                name="turns"
+                type="number"
+                placeholder="How long this rule lasts"
+                value="rule.turns"
+                [(ngModel)]="rule.turns"
+                [disabled]="rule.forever"
+                min="1"
+              />
+              <clr-control-error>required!</clr-control-error>
+              <!-- <clr-control-helper>If not forever, for how many turns this lasts?</clr-control-helper> -->
+            </clr-input-container>
+
+            <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+            <clr-toggle-container>
+              <label
+                >To whom this applies?
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >You can choose between the player using the effect or other specific. Example: 'Apply to all except the last
+                      player'</span
+                    >
+                  </a></span
+                ></label
+              >
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="rule.toSelf" />
+                <label>On self player?</label>
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another rule, however</clr-control-helper> -->
+            </clr-toggle-container>
+
+            <clr-input-container *ngIf="!rule.toSelf">
+              <label
+                >Specific type of player
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content">If not on itself, on whom to apply?</span>
+                  </a></span
+                ></label
+              >
+              <input
+                clrInput
+                name="toSpecific"
+                type="text"
+                placeholder="e.g, on any player that has x points or more"
+                value="rule.toSpecific"
+                [(ngModel)]="rule.toSpecific"
+                [disabled]="rule.toSelf"
+              />
+              <!-- <clr-control-helper>If not on self, on whom?</clr-control-helper> -->
+            </clr-input-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <div class="clr-row">
+      <div class="clr-col-8"></div>
+      <div class="clr-col-4">
+        <button class="btn btn-primary float-items-right" (click)="saveRule()">Save Rule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-datagrid>
+  <clr-dg-placeholder>We couldn't find any rule</clr-dg-placeholder>
+  <clr-dg-column>Label</clr-dg-column>
+  <clr-dg-column>Description</clr-dg-column>
+  <clr-dg-column>Has Precise</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let rule of state.statementRules; let i = index">
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onEdit(i)">Edit</button>
+      <button class="action-item" (click)="onDelete(i)">Delete</button>
+    </clr-dg-action-overflow>
+
+    <clr-dg-cell>{{ rule.label }}</clr-dg-cell>
+    <clr-dg-cell>{{ rule.simplerDescription }}</clr-dg-cell>
+    <clr-dg-cell>{{ rule.me != null && rule.me != "" }}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{ state.statementRules.length }} rules</clr-dg-footer>
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="showDeletePopup">
+  <h3 class="modal-title"></h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede; border-bottom: 1px solid #dedede">
+    <h3>Are you sure you want to delete this Rule?</h3>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger float-items-right" (click)="deleteRule()">Delete</button>
+  </div>
+</clr-modal>

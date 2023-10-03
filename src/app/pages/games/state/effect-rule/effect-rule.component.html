@@ -1,0 +1,166 @@
+<div class="card">
+  <div class="card-header">
+    <div class="clr-row">
+      <div class="clr-col-10">Effect Rule</div>
+      <div class="clr-col-2"></div>
+    </div>
+  </div>
+  <div class="card-block">
+    <div class="clr-col-12">
+      <form clrForm>
+        <div class="clr-row">
+          <div class="clr-col-6">
+            <clr-input-container>
+              <label>Label</label>
+              <input clrInput name="label" type="text" placeholder="Label..." value="rule.label" [(ngModel)]="rule.label" required />
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div class="card">
+      <div class="card-header">
+        <div class="clr-row">
+          <div class="clr-col-10">Effects</div>
+          <div class="clr-col-2">
+            <button class="btn btn-primary float-items-right" (click)="onAddEffect()">Add Effect</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-block">
+        <clr-datagrid>
+          <clr-dg-column>Effect</clr-dg-column>
+          <clr-dg-column>Status change</clr-dg-column>
+          <clr-dg-column>Duration</clr-dg-column>
+          <clr-dg-column>On whom</clr-dg-column>
+
+          <clr-dg-row *ngFor="let c of rule.effects; let i = index">
+            <clr-dg-action-overflow>
+              <button class="action-item" (click)="onEditEffect(i)">Edit</button>
+              <button class="action-item" (click)="onDeleteEffect(i)">Delete</button>
+            </clr-dg-action-overflow>
+            <clr-dg-cell>{{ c.simpleEffect }}</clr-dg-cell>
+            <clr-dg-cell>{{ c.statusChange ? c.statusChange : "(not set)" }}</clr-dg-cell>
+            <clr-dg-cell>{{ c.forever || c.turns > 0 ? (c.forever ? "Forever" : c.turns + " turns") : "(not set)" }}</clr-dg-cell>
+            <clr-dg-cell>{{ c.toSelf || c.toSpecific ? (c.toSelf ? "self player" : c.toSpecific) : "(not set)" }}</clr-dg-cell>
+          </clr-dg-row>
+        </clr-datagrid>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="clr-row">
+      <div class="clr-col-10"></div>
+      <div class="clr-col-2">
+        <button class="btn btn-primary float-items-right" (click)="saveRule()">Save Rule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-modal clrModalSize="xl" [(clrModalOpen)]="openCreateEffect">
+  <h3 class="modal-title">Create a Effect</h3>
+  <div class="modal-body">
+    <div class="card-block">
+      <form clrForm>
+        <!-- effectIfTrue -->
+        <div class="clr-row">
+          <div class="card-block clr-col-6">
+            <clr-textarea-container>
+              <label>Effect Simplified*</label>
+              <textarea
+                clrTextarea
+                [(ngModel)]="effect.simpleEffect"
+                name="effect.simpleEffect"
+                placeholder="What happens If Tests true?"
+                required
+              ></textarea>
+              <clr-control-helper>Describe the effect simply</clr-control-helper>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+
+            <clr-toggle-container>
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="specificEffect" />
+                <label>More precise effect?</label>
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+            </clr-toggle-container>
+          </div>
+          <!-- specific effect -->
+          <div class="card-block clr-col-6" *ngIf="specificEffect">
+            <clr-textarea-container>
+              <label>Status Change*</label>
+              <textarea
+                clrTextarea
+                [(ngModel)]="effect.statusChange"
+                name="effect.statusChange"
+                placeholder="What changes If Tests true?"
+                required
+              ></textarea>
+              <clr-control-helper>Describe what changes on the affected</clr-control-helper>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+
+            <clr-toggle-container>
+              <label>Effect duration</label>
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="effect.forever" />
+                <label>For the rest of the game</label>
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+            </clr-toggle-container>
+
+            <clr-input-container>
+              <label>Turns *</label>
+              <input
+                clrInput
+                name="turns"
+                type="number"
+                placeholder="How long this effect lasts"
+                value="effect.turns"
+                [(ngModel)]="effect.turns"
+                [disabled]="effect.forever"
+                min="1"
+              />
+              <clr-control-error>required!</clr-control-error>
+              <clr-control-helper>If not forever, for how many turns this lasts?</clr-control-helper>
+            </clr-input-container>
+
+            <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+            <clr-toggle-container>
+              <label>On whom to apply?</label>
+              <clr-toggle-wrapper>
+                <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="effect.toSelf" />
+                <label>On self player?</label>
+              </clr-toggle-wrapper>
+              <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+            </clr-toggle-container>
+
+            <clr-input-container>
+              <label>Specific type of player *</label>
+              <input
+                clrInput
+                name="toSpecific"
+                type="text"
+                placeholder="e.g, on any player that has x points or more"
+                value="effect.toSpecific"
+                [(ngModel)]="effect.toSpecific"
+                [disabled]="effect.toSelf"
+              />
+              <clr-control-helper>If not on self, on whom?</clr-control-helper>
+            </clr-input-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary float-items-right" (click)="addEffect()">Add</button>
+  </div>
+</clr-modal>

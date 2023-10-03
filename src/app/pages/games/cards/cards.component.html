@@ -1,0 +1,309 @@
+<div class="clr-col-12">
+  <div class="content-area">
+    <div *ngIf="!game.decks || game.decks.length == 0">
+      <h3 style="text-align: center">No deck on game. Please, create a deck to continue</h3>
+    </div>
+    <div class="card" *ngIf="game.decks && game.decks.length > 0">
+      <div class="card-block">
+        <!-- deck config -->
+        <!-- deck config -->
+        <!-- deck config -->
+
+        <div class="clr-row">
+          <div class="clr-col-6">
+            <!-- deck info edit  -->
+            <!-- deck info edit  -->
+            <!-- deck info edit  -->
+            <div class="card">
+              <div class="card-header">Edit Card Info</div>
+              <div class="card-block">
+                <form clrForm>
+                  <div class="clr-row">
+                    <div class="clr-col-12">
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckFront.title">
+                        <label>Front Title</label>
+                        <input
+                          clrInput
+                          name="title"
+                          type="text"
+                          style="width: 75%"
+                          maxlength="20"
+                          placeholder="title"
+                          [(ngModel)]="cardSelected.cardFront.title"
+                          required
+                        />
+                      </clr-input-container>
+
+                      <clr-input-container>
+                        <label
+                          >Repetitions
+                          <span
+                            ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                              <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                              <span class="tooltip-content">How many cards like this the selected deck will have?</span>
+                            </a></span
+                          ></label
+                        >
+                        <input
+                          clrInput
+                          name="repetitions"
+                          type="number"
+                          style="width: 75%"
+                          [value]="cardSelected.repetitions"
+                          [(ngModel)]="cardSelected.repetitions"
+                          min="1"
+                          max="30"
+                          required
+                        />
+                      </clr-input-container>
+
+                      <clr-textarea-container *ngIf="game.decks[deckIndex].deckFront.description">
+                        <label>Front description</label>
+                        <textarea
+                          clrTextarea
+                          name="description"
+                          placeholder="description"
+                          [(ngModel)]="cardSelected.cardFront.description"
+                          maxlength="200"
+                        ></textarea>
+                        <clr-control-error>required!</clr-control-error>
+                      </clr-textarea-container>
+
+                      <clr-textarea-container *ngIf="game.decks[deckIndex].deckFront.effect">
+                        <label>Front Effect</label>
+                        <textarea
+                          clrTextarea
+                          name="effect"
+                          maxlength="200"
+                          placeholder="effect"
+                          [(ngModel)]="cardSelected.cardFront.effect"
+                        ></textarea>
+                        <clr-control-error>required!</clr-control-error>
+                      </clr-textarea-container>
+                    </div>
+                    <div class="clr-col-6">
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckFront.cost">
+                        <label>Front cost</label>
+                        <input
+                          clrInput
+                          name="cost"
+                          type="number"
+                          style="width: 75%"
+                          min="0"
+                          max="99"
+                          placeholder="cost"
+                          [(ngModel)]="cardSelected.cardFront.cost"
+                          [value]="cardSelected.cardFront.cost"
+                        />
+                      </clr-input-container>
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckFront.level">
+                        <label>Front level</label>
+                        <input
+                          clrInput
+                          name="level"
+                          type="number"
+                          style="width: 75%"
+                          max="99"
+                          placeholder="level"
+                          [(ngModel)]="cardSelected.cardFront.level"
+                        />
+                      </clr-input-container>
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckFront.earning">
+                        <label>Front earning</label>
+                        <input
+                          clrInput
+                          name="earning"
+                          type="number"
+                          style="width: 75%"
+                          max="99"
+                          placeholder="earning"
+                          [(ngModel)]="cardSelected.cardFront.earning"
+                        />
+                      </clr-input-container>
+                    </div>
+
+                    <div class="clr-col-6">
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckBack.cost">
+                        <label>Back cost</label>
+                        <input
+                          clrInput
+                          name="cost"
+                          type="number"
+                          style="width: 75%"
+                          max="99"
+                          placeholder="cost"
+                          [(ngModel)]="cardSelected.cardBack.cost"
+                        />
+                      </clr-input-container>
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckBack.level">
+                        <label>Back level</label>
+                        <input
+                          clrInput
+                          name="level"
+                          type="number"
+                          style="width: 75%"
+                          max="99"
+                          placeholder="level"
+                          [(ngModel)]="cardSelected.cardBack.level"
+                        />
+                      </clr-input-container>
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckBack.earning">
+                        <label>Back earning</label>
+                        <input
+                          clrInput
+                          name="earning"
+                          type="number"
+                          style="width: 75%"
+                          max="99"
+                          placeholder="earning"
+                          [(ngModel)]="cardSelected.cardBack.earning"
+                        />
+                      </clr-input-container>
+                    </div>
+                    <div class="clr-col-12">
+                      <clr-input-container *ngIf="game.decks[deckIndex].deckBack.title">
+                        <label>Back Title</label>
+                        <input
+                          clrInput
+                          name="title"
+                          type="text"
+                          style="width: 75%"
+                          maxlength="20"
+                          placeholder="title"
+                          [(ngModel)]="cardSelected.cardBack.title"
+                        />
+                      </clr-input-container>
+
+                      <clr-textarea-container *ngIf="game.decks[deckIndex].deckBack.answers">
+                        <label>Answers</label>
+                        <textarea
+                          clrTextarea
+                          name="answers"
+                          placeholder="answers"
+                          maxlength="200"
+                          [(ngModel)]="cardSelected.cardBack.answers"
+                        ></textarea>
+                        <clr-control-error>required!</clr-control-error>
+                        <clr-control-helper>separate each answer with ';'</clr-control-helper>
+                      </clr-textarea-container>
+
+                      <clr-textarea-container *ngIf="game.decks[deckIndex].deckBack.effect">
+                        <label>Back Effect</label>
+                        <textarea
+                          clrTextarea
+                          name="effect"
+                          placeholder="effect"
+                          maxlength="200"
+                          [(ngModel)]="cardSelected.cardBack.effect"
+                        ></textarea>
+                        <clr-control-error>required!</clr-control-error>
+                      </clr-textarea-container>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <div class="clr-row">
+                  <div class="clr-col-8">
+                    <button *ngIf="cardIndex > 0" class="btn btn-danger float-items-right" (click)="onDelete(cardIndex)">Delete</button>
+                  </div>
+                  <div class="clr-col-4">
+                    <button class="btn btn-danger float-items-right" (click)="clearCardRequest()">Clear</button>
+                    <button class="btn btn-primary float-items-right" (click)="saveCard()">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-6" #cardContainer>
+            <div class="card">
+              <div class="card-header">Select a Deck</div>
+              <div class="card-block">
+                <div class="clr-row">
+                  <div *ngFor="let d of game.decks; let i = index" id="{{ 'deck-' + i }}" class="clr-col-2 btn-deck-wrapper">
+                    <button
+                      [ngStyle]="{ 'background-color': d.color }"
+                      class="btn btn-primary btn-deck horizontal-center-input"
+                      (click)="selectDeck(i)"
+                    ></button>
+                    {{ d.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="min-height: 1rem"></div>
+
+            <div class="clr-row">
+              <app-card
+                [deck]="deckSelected"
+                [card]="cardSelected"
+                [cardWidth]="cardWidth"
+                marginBetwCards="25"
+                marginLeft="15"
+                showImageForm="1"
+                [back]="
+                  deckSelected.deckBack.title ||
+                  deckSelected.deckBack.answers ||
+                  deckSelected.deckBack.effect ||
+                  deckSelected.deckBack.cost ||
+                  deckSelected.deckBack.level ||
+                  deckSelected.deckBack.earning
+                "
+              ></app-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="clr-row">
+          <div class="card">
+            <div class="card-header">Cards From This Deck</div>
+            <div class="card-block">
+              <clr-datagrid>
+                <clr-dg-placeholder>We couldn't find any card</clr-dg-placeholder>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.title">Front Title</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.description">Front Description</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.effect">Front Effect</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.cost">Front Cost</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.level">Front Level</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckFront.earning">Front Earning</clr-dg-column>
+
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.title">Back Title</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.answers">Back Description</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.effect">Back Effect</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.cost">Back Cost</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.level">Back Level</clr-dg-column>
+                <clr-dg-column *ngIf="game.decks[deckIndex].deckBack.earning">Back Earning</clr-dg-column>
+
+                <clr-dg-row *clrDgItems="let card of game.decks[deckIndex].cards; let i = index">
+                  <clr-dg-action-overflow>
+                    <button class="action-item" (click)="onEdit(i)">Edit</button>
+                    <button class="action-item" (click)="onDelete(i)">Delete</button>
+                    <button class="action-item" (click)="onCreateFrom(i)">Create from this</button>
+                  </clr-dg-action-overflow>
+
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.title">{{ card.cardFront.title }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.description">{{ card.cardFront.description }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.effect">{{ card.cardFront.effect }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.cost">{{ card.cardFront.cost }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.level">{{ card.cardFront.level }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckFront.earning">{{ card.cardFront.earning }}</clr-dg-cell>
+
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.title">{{ card.cardBack.title }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.answers">{{ card.cardBack.answers }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.effect">{{ card.cardBack.effect }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.cost">{{ card.cardBack.cost }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.level">{{ card.cardBack.level }}</clr-dg-cell>
+                  <clr-dg-cell *ngIf="game.decks[deckIndex].deckBack.earning">{{ card.cardBack.earning }}</clr-dg-cell>
+                </clr-dg-row>
+
+                <clr-dg-footer>{{ game.decks[deckIndex].cards.length }} cards</clr-dg-footer>
+              </clr-datagrid>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

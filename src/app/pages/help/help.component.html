@@ -1,0 +1,247 @@
+<div class="clr-col-12" style="background-color: #fafafa">
+  <div class="content-area">
+    <div class="clr-row">
+      <div class="clr-col-2"></div>
+      <div class="clr-col-8">
+        <h1><cds-icon solid shape="flag" size="lg"></cds-icon> Help Page</h1>
+        <h2>Disclaimer</h2>
+
+        <p class="ph">
+          This project was developed by Rubens Anderson de Sousa Silva, supervised by Profa. Rossana Maria de Castro Andrade, in a Master's
+          project linked to the Master's and Doctorate in Computer Science (MDCC) program at the Federal University of Ceará (UFC), in
+          conjunction with the Department of Computing (DC).
+        </p>
+        <p class="ph">
+          The tool, entitled D-CreEA Card Games, aims to assist the development of educational analog games customizable, by computing
+          teachers who have little or no game development experience.
+        </p>
+        <p class="ph">
+          This is a work in constant evolution. Therefore, there may be failures or difficulties during use. To report any difficulty,
+          suggestions or contact: dcreea@gmail.com
+        </p>
+
+        <h2>Development with D-CreEA Card Games</h2>
+        <p class="ph">
+          To develop a game using D-CreEA, you need to create an account with your email. In addition, it is important to have notions of
+          diagram manipulation
+        </p>
+        <p class="ph">The development of a game follows the steps of prototyping a traditional analog game:</p>
+        <ul>
+          <li>Modeling the Ideia</li>
+          <li>Game Develop Document (GDD)</li>
+          <li>Modeling the gameplay</li>
+          <li>Description of the rules</li>
+          <li>Gameloop</li>
+          <li>Cards and Deck implementation</li>
+          <li>Game Manual implementation</li>
+          <li>Print</li>
+        </ul>
+
+        <p class="ph">
+          The differential of D-CreEA Card Games is the standardization of this process. In addition to the step-by-step not being trivial
+          to follow, the default description helps people who are not knowledgeable about analog game development, and who are interested in
+          developing more quickly.
+        </p>
+        <p class="ph">Thus, the development screens follow the following pattern:</p>
+        <ul>
+          <li>Game Details</li>
+          <li>Diagram</li>
+          <li>GamePlay</li>
+          <li>Decks</li>
+          <li>Cards</li>
+          <li>Print</li>
+        </ul>
+
+        <p class="ph">
+          On this page, we will explain in detail how to use each of the pages. In addition, there are videos explaining in practice the
+          operation of D-CreEA Card Games.
+        </p>
+        <h3>Game Details</h3>
+
+        <p class="ph">
+          On the Game Details page reside the fields that would be found in the GDD. We chose an implementation complete enough to describe
+          the idea of ​​the game and how it should work, from a macro perspective. Obviously, the idea must change during the project of the
+          game, so all fields are editable.
+        </p>
+        <p class="ph">The fields that exist on this page are:</p>
+        <ul>
+          <li>Name: the name of the game</li>
+          <li>Authors: The authors of the game</li>
+          <li>The gameplay, described in a simplified and macro way</li>
+          <li>Game description, free form</li>
+          <li>Game's target audience</li>
+          <li>Game Knowledge Field</li>
+          <li>Knowledge needed/important to play the game</li>
+          <li>Recommended minimum and maximum number of players</li>
+        </ul>
+
+        <p class="ph">In addition, you need to save changes to persist in the database.</p>
+
+        <h3>GamePlay</h3>
+
+        <p class="ph">
+          This screen is responsible for modeling the rules and their relationships. The system provides a standard game model for the user
+          to develop without having to start from scratch, and still be able to better understand the working dynamics of the tool.
+        </p>
+
+        <p class="ph">
+          The default game is based on the diagram shown below. The game has the following types of moves (also called mechanics): (I) Solve
+          a Challenge; (II) Use a Bonus, and (III) Bargain.
+        </p>
+
+        <h3>States and Rules</h3>
+
+        <p class="ph">
+          Each <b>state</b> (rectangle) represents a moment in the game. Each state has its specific rules. Therefore, states encapsulate
+          rules for each phase of the game, according to its purpose. The rules are always linked to states, and can change state
+          (Transition) or remain in the same (Statement).
+        </p>
+
+        <p class="ph">Regarding the types of rules, there are two: <b>Statement</b> Rule and <b>Transition Rule</b>.</p>
+        <p class="ph">
+          <b>Statement Rule</b>: has an action or effect that explains how a game situation should occur, or can be applied to some player,
+          thus changing their status. However, after applying the effects, the state remains the same, and it depends on the transition.
+          choose the next steps. Finally, this rule has two modes: a general and a precise one.
+        </p>
+        <p class="ph">
+          <b>Transition Rule</b>: This type has two modes: Conditional and Simple. On the Conditional Transition, unlike the Statement, this
+          alters the state according to conditionals that depend on the game context. The rule has the form `IF condition THEN effect AND go
+          to State X`. For each condition, the status that should be followed if the test is true is indicated. Each test has the option of
+          general and simplified. As for the Simple Transition, only the following state is chosen, without conditions or effects.
+        </p>
+
+        <h3>GameLoop</h3>
+        <p class="ph">
+          The gameloop is the visual representation of the game's game play. It's a loop, because in each round, the same moves must be
+          possible.
+        </p>
+        <p class="ph">
+          A <b>game mechanic</b> is a set of states within the game loop that represents and implements a high-level type of play.
+        </p>
+        <p class="ph"></p>
+        <p class="ph">
+          <b>Example of mechanics</b>: to solve a challenge, the player (1) must choose a card from his hand, (2) match the card chosen with
+          any challenge card available, (3) check if the card can solve the challenge (determined according to the defined rule), (4) If
+          right, go to victory state; otherwise, go to the defeat state. Here, we can identify the fragments that make up the state of
+          Solving a Challenge:
+        </p>
+        <ol>
+          <li>pick a card from the hand</li>
+          <li>Combine the card</li>
+          <li>Verify if the card resolves the challenge</li>
+          <li>[conditional] If hit, go to the victory state; otherwise, go to the defeat state.</li>
+        </ol>
+
+        <p class="ph">
+          Note that this state contains all the logic for solving the challenge, but not the scoring logic. This is recommended to better
+          isolate the roles and responsibilities of each state. It helps, for example, to isolate the types of punctuation and effects that
+          may result from the victory or defeat.
+        </p>
+        <p class="ph"></p>
+        <p class="ph">
+          Every game must have unique <b>Game Start</b> and a <b>Game Over</b> States, which represent, respectively, the beginning and the
+          end of the game.
+        </p>
+        <ul>
+          <li>States are represented by <b>rectangles</b>.</li>
+          <li>
+            Transition rules are represented by <b>arrows</b>, which indicate where and where to go after the built-in and conditional rules
+            be applied.
+          </li>
+          <li>
+            Some states have <b>conditional rules</b>, and this condition is represented by a <b>diamond</b> just below the state, with its
+            conditions from him.
+          </li>
+        </ul>
+        <p class="ph">
+          Each type of play is represented by a loop between the Play or Next Player state and other states. Also, there are plays that can
+          end the game, reaching the state of Game Over.
+        </p>
+        <p class="ph">
+          You can create, edit and delete states according to your game and your needs. However, there are restrictions: it is only possible
+          remove a state if there is no other state pointing to it. Also, you cannot change the Game Start or the Game. Over.
+        </p>
+
+        <div style="text-align: center">
+          <img src="../../../assets/images/gameloop.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span style="font-style: italic">Gameloop representation</span>
+        </div>
+
+        <h3>Decks</h3>
+
+        <p class="ph">
+          On the Decks page, you can create, edit and remove Decks. In this one, you can change the color, name, description and fields that
+          will appear on the back and front of all cards.
+        </p>
+
+        <div class="clr-row">
+          <div class="clr-col-3">
+            <p class="ph">The fields that can be chosen up front are:</p>
+            <ul>
+              <li>Title</li>
+              <li>Art (in development)</li>
+              <li>Description</li>
+              <li>Effect</li>
+              <li>Scores</li>
+            </ul>
+            <p class="ph">The fields that can be chosen from the back are:</p>
+            <ul>
+              <li>Title</li>
+              <li>Answers</li>
+              <li>Effect</li>
+              <li>Scores</li>
+            </ul>
+          </div>
+          <div class="clr-col-9">
+            <div style="text-align: center">
+              <img src="../../../assets/images/decks.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+              <span style="font-style: italic">Decks Page</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ph">The possible scores for each card are as follows.:</p>
+        <ul>
+          <li>Earnings: (diamond) represents the number of points the player receives for the card;</li>
+          <li>Level: (circle) indicates the player's level so that he can use the given card;</li>
+          <li>Price: (triangle) indicates the price to be paid in order to use the given card.</li>
+        </ul>
+
+        <div style="text-align: center; width: 30%; margin-top: 1.5rem">
+          <img src="../../../assets/images/pontuacao.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span style="font-style: italic">Scores</span>
+        </div>
+
+        <p class="ph">Each score can be disabled, which can generate cards without any score.</p>
+
+        <h3>Cards</h3>
+
+        <p class="ph">
+          This page presents the means to create, edit and remove cards from each deck. Here, each field enabled on the Decks page must
+          receive a value for the letter to be valid
+        </p>
+
+        <div style="text-align: center; margin-top: 1.5rem">
+          <img src="../../../assets/images/cards.PNG" width="100%" class="img-fluid" alt="Imagem cards" />
+          <span style="font-style: italic">Cards Page</span>
+        </div>
+
+        <h3>Print</h3>
+
+        <p class="ph">
+          On this page, you can preview the game manual that will be printed. Here, there is the conversion of the game loop and diagram
+          into textual rules, which explain the gameplay (or else the errors that the diagram has). If you want to print the manual and
+          letters, just press the Print button, TWO files will be downloaded, in PDF format. It is necessary to wait for the files to
+          download before editing the game again.
+        </p>
+        <div style="text-align: center; margin-top: 1rem">
+          <img src="../../../assets/images/rules.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span style="font-style: italic">Automatically Generated rules</span>
+        </div>
+        <div style="min-height: 3rem"></div>
+      </div>
+      <div class="clr-col-2"></div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

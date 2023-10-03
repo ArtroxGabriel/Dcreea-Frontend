@@ -1,0 +1,14 @@
+Melhorias:
+
+0 sistema precisa
+- salvamento no banco de dados
+
+1. gdd precisa ter
+- gameplay simplificado
+
+2. deck precisa ter
+- tipos de carta dentro de um deck
+    - cada tipo tem seu próprio layout
+
+3. carta:
+- numero de repetições da carta

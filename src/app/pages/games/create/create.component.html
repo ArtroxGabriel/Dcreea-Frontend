@@ -1,0 +1,54 @@
+<div class="content-area">
+  <div class="clr-row">
+    <div class="clr-col-12">
+      <div class="card" style="margin: 5px 0px; min-height: 100%">
+        <div class="card-block">
+          <clr-tabs>
+            <clr-tab>
+              <button class="btn-tab-details" clrTabLink>Game Details</button>
+              <clr-tab-content *clrIfActive="true">
+                <!-- game details -->
+                <app-game-description-form></app-game-description-form>
+              </clr-tab-content>
+            </clr-tab>
+
+            <clr-tab>
+              <button clrTabLink>Diagram</button>
+              <clr-tab-content *clrIfActive>
+                <!-- game details -->
+                <app-drag [game]="game" showSaveBtn="true" (save)="savePositions($event)"></app-drag>
+              </clr-tab-content>
+            </clr-tab>
+
+            <clr-tab>
+              <button clrTabLink>Gameplay</button>
+              <clr-tab-content *clrIfActive>
+                <!-- Gameplay edit -->
+                <app-state></app-state>
+              </clr-tab-content>
+            </clr-tab>
+
+            <clr-tab>
+              <button clrTabLink>Decks</button>
+              <clr-tab-content *clrIfActive>
+                <app-decks></app-decks>
+              </clr-tab-content>
+            </clr-tab>
+            <clr-tab>
+              <button clrTabLink>Cards</button>
+              <clr-tab-content *clrIfActive>
+                <app-cards></app-cards>
+              </clr-tab-content>
+            </clr-tab>
+            <clr-tab>
+              <button clrTabLink>Print</button>
+              <clr-tab-content *clrIfActive>
+                <app-summary></app-summary>
+              </clr-tab-content>
+            </clr-tab>
+          </clr-tabs>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

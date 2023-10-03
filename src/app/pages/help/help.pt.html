@@ -1,0 +1,248 @@
+<div class="clr-col-12" style="background-color: #fafafa">
+  <div class="content-area">
+    <div class="clr-row">
+      <div class="clr-col-2"></div>
+      <div class="clr-col-8">
+        <h2>Disclaimer</h2>
+
+        <p class="ph">
+          Este projeto foi desenvolvido por Rubens Anderson de Sousa Silva, Orientado pela Profa. Rossana Maria de Castro Andrade, em um
+          projeto de mestrado vinculado ao programa de Mestrado e Doutorado em Ciência da Computação (MDCC) da Universidade Federal do Ceará
+          (UFC), em conjunto com o Departamento de Computação (DC).
+        </p>
+        <p class="ph">
+          A ferramenta, intitulada D-CreEA Card Games, tem o objetivo de auxiliar o desenvolvimento de jogos analógicos educacionais
+          personalizáveis, por professores de Computação que possuem pouca ou nenhuma experiência em desenvolvimento de jogos.
+        </p>
+        <p class="ph">
+          Este é um trabalho em constante evolução. Sendo assim, podem existir falhas ou dificuldades durante o uso. Para reportar qualquer
+          dificuldade, sugestões ou entrar em contato: dcreea@gmail.com
+        </p>
+
+        <h2>Desenvolvimento com D-CreEA Card Games</h2>
+        <p class="ph">
+          Para desenvolver um jogo utilizando o D-CreEA, é necessário criar uma conta com seu email. Além disso, é importante ter noções de
+          manipulação de diagramas
+        </p>
+        <p class="ph">O desenvolvimento de um jogo segue as etapas da criação de um jogo analógico de forma tradicional:</p>
+        <ul>
+          <li>Modelagem da Ideia</li>
+          <li>Game Develop Document (GDD)</li>
+          <li>Modelagem do gameplay</li>
+          <li>Descrição das Regras</li>
+          <li>Gameloop</li>
+          <li>Prototipagem</li>
+          <li>Descrição dos decks e cartas</li>
+          <li>Descrição do Manual do Jogo</li>
+          <li>Impressão</li>
+        </ul>
+
+        <p class="ph">
+          O diferencial do D-CreEA Card Games é a padronização deste processo. Além do passo-a-passo não ser trivial de acompanhar, a
+          descrição padrão ajuda pessoas que não tem conhecimento em desenvolvimento de jogos analógicos, e que tem interesse em desenvolver
+          de forma mais rápida.
+        </p>
+        <p class="ph">Desta forma, as telas de desenvolvimento seguem o seguinte padrão:</p>
+        <ul>
+          <li>Game Details</li>
+          <li>GamePlay</li>
+          <li>Diagrama</li>
+          <li>Decks</li>
+          <li>Cards</li>
+          <li>Impressão</li>
+        </ul>
+
+        <p class="ph">
+          Nesta página, iremos explicar em detalhes como utilizar cada uma das páginas. Além disso, há vídeos explicando na prática o
+          funcionamento do D-CreEA Card Games.
+        </p>
+        <h3>Game Details</h3>
+
+        <p class="ph">
+          Na página de Game Details residem os campos que se encontrariam no GDD. Escolhemos uma implementação suficientemente completa para
+          descrever a ideia do jogo e como ele deve funcionar, sob uma ótica macro. Obviamente, a ideia deve se modificar durante o projeto
+          do jogo, então todos os campos são editáveis.
+        </p>
+        <p class="ph">Os campos que existem nessa página são:</p>
+        <ul>
+          <li>Name: o nome do jogo</li>
+          <li>Autores: Os autores do jogo</li>
+          <li>O gameplay, descrito de forma simplificada e macro</li>
+          <li>Descrição do jogo, de forma livre</li>
+          <li>Público-alvo do jogo</li>
+          <li>Campo de conhecimento do jogo</li>
+          <li>Conhecimentos necessários/importantes para jogar o jogo</li>
+          <li>Número mínimo e máximo de jogadores recomendado</li>
+        </ul>
+
+        <p class="ph">Além disso, é necessário salvar as mudanças para persistirem no banco de dados</p>
+
+        <h3>GamePlay</h3>
+
+        <p class="ph">
+          Esta tela é responsável por modelar as regras e suas relações. O sistema provê um modelo padrão de jogo para que o usuário possa
+          desenvolver sem precisar começar do zero, e ainda consiga entender melhor a dinâmica de funcionamento da ferramenta.
+        </p>
+
+        <p class="ph">
+          O jogo padrão é baseado no diagrama apresentado a seguir. O jogo possui os seguintes tipos de jogadas (também chamadas de
+          mecânicas): (I) Resolver um Desafio; (II) Usar um Bônus, e (III) Barganhar.
+        </p>
+
+        Diagrama.png
+
+        <h3>Estados e Regras</h3>
+
+        <p class="ph">
+          Cada estado (retângulo) representa um momento do jogo. Cada estado possui suas regras específicas. Sendo assim, Estados encapsulam
+          regras para cada fase do jogo, de acordo com seu propósito. As regras sempre estão atreladas a Estados, podendo mudar de Estado
+          (de Transição) ou permanecer no mesmo (Statement).
+        </p>
+
+        <p class="ph">Sobre os tipos de regras, existem dois: Regra Statement e Regra Transição.</p>
+        <p class="ph">
+          Regra Statement: possui uma ação ou efeito que explica como uma situação de jogo deve ocorrer, ou ainda, pode ser aplicado em
+          algum jogador, alterando assim seus status. Contudo, após aplicar os efeitos, o estado permanece o mesmo, e depende da transição
+          escolher quais os próximos passos. Por último, esta regra possui dois modos: um geral e um preciso.
+        </p>
+        <p class="ph">
+          Regra Transição: este tipo possui dois modos: Condicional e Simples. Sobre a Transição Condicional, ao contrário da Statement,
+          esta altera o Estado de acordo com condicionais que dependem do contexto do jogo. A regra tem a forma `SE condição ENTÃO efeito E
+          vá para o Estado X`. Para cada condição, é indicado o estado que se deve seguir caso o teste dê verdadeiro. Cada teste tem a opção
+          de geral e simplificado. Já sobre a Transição Simples, é só escolhido o estado a seguir, sem condições ou efeitos.
+        </p>
+
+        <h3>Game Loop</h3>
+        <p class="ph">
+          O game loop é a representação visual do game play do jogo. É um loop, pois a cada rodada, as mesmas jogadas devem ser possíveis
+        </p>
+        <p class="ph">
+          Uma mecânica de jogo é um conjunto de estados dentro do game loop que representa e implementa um tipo de jogada de alto nível.
+        </p>
+        <p class="ph"></p>
+        <p class="ph">
+          <b>Exemplo de mecânica</b>: para resolver um desafio, o jogador (1) deve escolher uma carta da sua mão, (2) combinar a carta
+          escolhida com alguma carta de desafio disponível, (3) verificar se a carta consegue resolver o desafio (determinado de acordo com
+          a regra definida), (4) Se acertou, vá para o estado de vitória; senão, vá para o estado de derrota. Aqui, podemos identificar os
+          fragmentos que formam o estado de Resolver um Desafio:
+        </p>
+        <ol>
+          <li>escolher uma carta da mão</li>
+          <li>combinar a carta</li>
+          <li>verificar se a carta resolve o desafio</li>
+          <li>[condicional] Se acertou, vá para o estado de vitória; senão, vá para o estado de derrota.</li>
+        </ol>
+
+        <p class="ph">
+          Note que este estado contém toda a lógica de resolver o desafio, mas não a de pontuação. Isso é recomendado para isolar melhor os
+          papeis e responsabilidades de cada estado. Ajuda, por exemplo, a isolar os tipos de pontuação e efeitos que podem descorrer da
+          vitória ou derrota.
+        </p>
+        <p class="ph"></p>
+        <p class="ph">
+          Todo jogo deve ter um único Estado Game Start e um Game Over, que representam, respectivamente, o início e o fim do jogo.
+        </p>
+        <ul>
+          <li>Os estados são representados por retângulos.</li>
+          <li>
+            As regras de transição são representadas por setas, que indicam de onde e para onde ir após as regras internas e condicionais
+            serem aplicadas.
+          </li>
+          <li>
+            Alguns estados tem regras condicionais, e tal condição é representada por um losângo logo abaixo do estado, com suas condições
+            partindo dele.
+          </li>
+        </ul>
+        <p class="ph">
+          Cada tipo de jogada é representada por um loop entre o estado de Jogar ou Próximo Jogador e outros estados. Além disso, há jogadas
+          que podem encerrar o jogo, podendo alcançar o estado de Game Over.
+        </p>
+        <p class="ph">
+          Você pode criar, editar e deletar estados de acordo com seu jogo e suas necessidades. Contudo, há restrições: só é possível
+          remover um estado se não há nenhum outro estado apontando para ele. Além disso, não se pode alterar nem o Game Start nem o Game
+          Over.
+        </p>
+
+        <div style="text-align: center">
+          <img src="../../../assets/images/gameloop.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span>Gameloop representation</span>
+        </div>
+
+        <h3>Decks</h3>
+
+        <p class="ph">
+          Na página de Decks, é possível criar, editar e remover Decks. Nesta, você pode alterar a cor, o nome, descrição e os campos que
+          irão aparecer na parte de trás e da frente em todas as cartas.
+        </p>
+
+        <div class="clr-row">
+          <div class="clr-col-3">
+            <p class="ph">Os campos que podem ser escolhidos na frente são:</p>
+            <ul>
+              <li>Título</li>
+              <li>Arte (em desenvolvimento)</li>
+              <li>Descrição</li>
+              <li>Efeito</li>
+              <li>Pontuações</li>
+            </ul>
+            <p class="ph">Os campos que podem ser escolhidos na parte de trás são:</p>
+            <ul>
+              <li>Título</li>
+              <li>Respostas</li>
+              <li>Efeito</li>
+              <li>Pontuações</li>
+            </ul>
+          </div>
+          <div class="clr-col-9">
+            <div style="text-align: center">
+              <img src="../../../assets/images/decks.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+              <span>Decks Page</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ph">As pontuações possíveis para cada carta são as seguintes:</p>
+        <ul>
+          <li>Ganhos: (losango) representa o número de pontos que o jogador recebe pela carta;</li>
+          <li>Nível: (círculo) indica qual o nível do jogador para que ele possa usar a dada carta;</li>
+          <li>Preço: (triângulo) indica qual o preço a ser pago para que se possa usar a dada carta.</li>
+        </ul>
+
+        <div style="text-align: center; width: 30%; margin-top: 1.5rem">
+          <img src="../../../assets/images/pontuacao.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span>Pontuação</span>
+        </div>
+
+        <p class="ph">Cada pontuação pode ser desabilitada, podendo gerar cartas sem pontuação alguma.</p>
+
+        <h3>Cartas</h3>
+
+        <p class="ph">
+          Esta página apresenta os meios para criar, editar e remover cartas de cada baralho. Aqui, cada campo habilitado na página de Decks
+          deverá receber um valor para que a carta seja válida
+        </p>
+
+        <div style="text-align: center; margin-top: 1.5rem">
+          <img src="../../../assets/images/cards.PNG" width="100%" class="img-fluid" alt="Imagem cards" />
+          <span>Cards Page</span>
+        </div>
+
+        <h3>Impressão</h3>
+
+        <p class="ph">
+          Nesta página, é possível pré-visualizar o manual do jogo que será impresso. Aqui, há a conversão do game loop e do diagrama em
+          regras textuais, que explicam o gameplay (ou então os erros que o diagrama possui). Caso queira imprimir o manual e as cartas,
+          basta apertar o botão Imprimir, que DOIS arquivos serão baixados, no formato PDF. É necessário aguardar o download dos arquivos
+          antes de editar novamente o jogo.
+        </p>
+        <div style="text-align: center; margin-top: 1rem">
+          <img src="../../../assets/images/rules.PNG" width="100%" class="img-fluid" alt="Imagem gameloop" />
+          <span>Regras geradas automaticamente</span>
+        </div>
+        <div style="min-height: 3rem"></div>
+      </div>
+      <div class="clr-col-2"></div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

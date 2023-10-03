@@ -1,0 +1,53 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.vertical-center-input {
+  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.horizontal-center-input {
+  margin: 0 auto;
+  display: table;
+}
+
+.input-no-space {
+  width: 100%;
+  min-width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+input {
+  min-width: 1px;
+}
+
+.btn-deck {
+  border: 2px solid #cacaca;
+  border-radius: 0.2rem;
+  height: 4.5rem;
+  width: 1rem;
+}
+
+.btn-deck-wrapper {
+  border-color: #cacaca;
+  border-style: solid;
+  border-width: 0px;
+  width: 80%;
+  height: 100%;
+  padding-top: 0.1rem;
+  text-align: center;
+  border-radius: 0.3rem;
+}
+
+.btn-deck-wrapper :hover {
+  background-color: #dedede80;
+}
+.card-point-label {
+  margin-left: 0.4rem;
+}

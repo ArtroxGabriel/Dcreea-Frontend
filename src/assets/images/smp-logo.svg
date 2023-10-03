@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102" height="102" viewBox="0 0 102 102">
+  <g id="Elipse_6" data-name="Elipse 6" fill="#f3f3f3" stroke="#888" stroke-width="4">
+    <circle cx="51" cy="51" r="51" stroke="none"/>
+    <circle cx="51" cy="51" r="49" fill="none"/>
+  </g>
+  <g id="Elipse_7" data-name="Elipse 7" transform="translate(4 4)" fill="#f5f7f7" stroke="#c2bfbf" stroke-width="3">
+    <circle cx="47" cy="47" r="47" stroke="none"/>
+    <circle cx="47" cy="47" r="45.5" fill="none"/>
+  </g>
+  <g id="Polígono_13" data-name="Polígono 13" transform="translate(93.506 23.193) rotate(90)" fill="rgba(0,0,0,0.3)">
+    <path d="M 51.33133697509766 44.64631652832031 L 2.614202260971069 44.64631652832031 L 26.97276878356934 2.9725022315979 L 51.33133697509766 44.64631652832031 Z" stroke="none"/>
+    <path d="M 26.97276878356934 5.944992065429688 L 5.228397369384766 43.14631652832031 L 48.71714019775391 43.14631652832031 L 26.97276878356934 5.944992065429688 M 26.97276878356934 -3.814697265625e-06 L 53.94553756713867 46.14631652832031 L 0 46.14631652832031 L 26.97276878356934 -3.814697265625e-06 Z" stroke="none" fill="#707070"/>
+  </g>
+  <g id="Retângulo_38" data-name="Retângulo 38" transform="translate(48.284 22.532) rotate(45)" fill="rgba(0,143,33,0.3)" stroke="#707070" stroke-width="3">
+    <rect width="38.997" height="40.297" stroke="none"/>
+    <rect x="1.5" y="1.5" width="35.997" height="37.297" fill="none"/>
+  </g>
+  <g id="Polígono_14" data-name="Polígono 14" transform="translate(33.459 34.258)" fill="rgba(102,249,190,0.3)">
+    <path d="M 27.23635101318359 23.19795989990234 L 2.661259651184082 23.19795989990234 L 14.94879341125488 2.8968505859375 L 27.23635101318359 23.19795989990234 Z" stroke="none"/>
+    <path d="M 14.94879531860352 5.793701171875 L 5.322511672973633 21.69795989990234 L 24.5750846862793 21.69795989990234 L 14.94879531860352 5.793701171875 M 14.94879531860352 -1.9073486328125e-06 L 29.89760398864746 24.69795989990234 L -5.7220458984375e-06 24.69795989990234 L 14.94879531860352 -1.9073486328125e-06 Z" stroke="none" fill="#707070"/>
+  </g>
+</svg>

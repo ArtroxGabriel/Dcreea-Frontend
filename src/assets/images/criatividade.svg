@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="423.295" height="364.159" viewBox="0 0 423.295 364.159">
+  <path id="Polígono_33" data-name="Polígono 33" d="M182,0,364,141H0Z" transform="translate(0 227.098) rotate(-34)" fill="#fff"/>
+  <path id="Polígono_28" data-name="Polígono 28" d="M81,0l81,106H0Z" transform="translate(116.618 46.471)" fill="#ffeaae"/>
+  <path id="Polígono_29" data-name="Polígono 29" d="M81,0l81,106H0Z" transform="translate(132.618 46.471)" fill="#ffeaae"/>
+  <path id="Polígono_30" data-name="Polígono 30" d="M81,0l81,106H0Z" transform="translate(165.618 49.471)" fill="#ffeaae"/>
+  <path id="Polígono_31" data-name="Polígono 31" d="M66.5,0,133,106H0Z" transform="translate(192.618 47.471)" fill="#ffeaae"/>
+  <line id="Linha_82" data-name="Linha 82" x1="33" y2="60.134" transform="translate(79.118 234.971)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_83" data-name="Linha 83" x1="43.246" transform="translate(79.118 295.105)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_84" data-name="Linha 84" y1="36.866" x2="12.246" transform="translate(110.118 295.105)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_85" data-name="Linha 85" x1="46" y2="0.003" transform="translate(110.118 331.968)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_86" data-name="Linha 86" x1="13" y1="32" transform="translate(110.118 331.971)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_92" data-name="Linha 92" x1="38" y1="20" transform="translate(117.118 311.971)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_93" data-name="Linha 93" x1="35" y2="25" transform="translate(120.118 331.971)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_87" data-name="Linha 87" x2="48.173" transform="translate(150.282 238.48)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_88" data-name="Linha 88" y1="6.925" transform="translate(165.063 231.555)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_89" data-name="Linha 89" y1="6.925" x2="3.284" transform="translate(176.011 231.555)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_90" data-name="Linha 90" y1="6.925" x2="10.948" transform="translate(187.507 231.555)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_17" data-name="Caminho 17" d="M8377.5-1137.374" transform="translate(-8264.442 1297.464)" fill="none" stroke="#707070" stroke-width="1"/>
+  <line id="Linha_91" data-name="Linha 91" x2="171" transform="translate(112.118 152.971)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_19" data-name="Caminho 19" d="M8370.982-925.5l39.137-100.1,36.39,20.6,40.509-73.466-19.224,110.542-43.257-8.239L8384.028-925.5Z" transform="translate(-8236.382 1078.471)" fill="#5e6091"/>
+  <path id="Caminho_27" data-name="Caminho 27" d="M8370.982-927l39.137-99.122,36.39,20.4,40.509-72.745-19.224,109.458-43.257-8.158L8384.028-927Z" transform="translate(-8241.382 1080.471)" fill="#66699e"/>
+  <path id="Caminho_23" data-name="Caminho 23" d="M8370.982-1061.248l4.406-11.271,4.1,2.319,4.561-8.272-2.164,12.446-4.871-.928-4.561,5.7Z" transform="translate(-8126.382 1125.219)" fill="#5e6091"/>
+  <path id="Caminho_26" data-name="Caminho 26" d="M8370.982-1061.248l4.406-11.271,4.1,2.319,4.561-8.272-2.164,12.446-4.871-.928-4.561,5.7Z" transform="matrix(0.819, -0.574, 0.574, 0.819, -6058.679, 5717.882)" fill="#7678b5"/>
+  <path id="Caminho_24" data-name="Caminho 24" d="M8370.982-1061.248l4.406-11.271,4.1,2.319,4.561-8.272-2.164,12.446-4.871-.928-4.561,5.7Z" transform="translate(-7671.001 2965.329) rotate(-13)" fill="#7d7fb8"/>
+  <path id="Caminho_20" data-name="Caminho 20" d="M8370.982-943.932l34.421-88.042,32,18.116,35.628-64.614-16.907,97.223-38.045-7.246-35.628,44.563Z" transform="translate(-8169.122 -1252.974) rotate(16)" fill="#bc789c"/>
+  <path id="Caminho_28" data-name="Caminho 28" d="M8370.982-943.932l34.421-88.042,32,18.116,35.628-64.614-16.907,97.223-38.045-7.246-35.628,44.563Z" transform="translate(-8174.122 -1250.974) rotate(16)" fill="#d387af"/>
+  <path id="Caminho_25" data-name="Caminho 25" d="M8370.982-1045.4l8.46-21.64,7.866,4.453,8.758-15.882-4.156,23.9-9.351-1.781L8373.8-1045.4Z" transform="matrix(0.966, 0.259, -0.259, 0.966, -8096.659, -1078.6)" fill="#bc789c"/>
+  <path id="Caminho_21" data-name="Caminho 21" d="M8509.332-933.77c85.471-118.781,71.051,3.433,71.051,3.433l78.959-71.406Z" transform="translate(-8236.382 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_22" data-name="Caminho 22" d="M8509.332-933.77c85.471-118.781,71.051,3.433,71.051,3.433l78.959-71.406Z" transform="translate(-8250.382 1064.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Polígono_16" data-name="Polígono 16" d="M9,0l9,16H0Z" transform="translate(91.618 118.471)" fill="#60c7ab"/>
+  <path id="Polígono_17" data-name="Polígono 17" d="M12.5,0,25,22H0Z" transform="translate(105.618 98.471)" fill="#6adcbd"/>
+  <path id="Polígono_18" data-name="Polígono 18" d="M10,0,20,18H0Z" transform="matrix(0.985, 0.174, -0.174, 0.985, 93.333, 98.871)" fill="#6adcbd"/>
+  <path id="Polígono_19" data-name="Polígono 19" d="M7,0l7,13H0Z" transform="translate(80.335 116.212) rotate(-13)" fill="#6adcbd"/>
+  <path id="Polígono_21" data-name="Polígono 21" d="M7,0l7,13H0Z" transform="translate(71.817 92.257) rotate(-20)" fill="#6adcbd"/>
+  <path id="Polígono_22" data-name="Polígono 22" d="M7,0l7,13H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 80.596, 57.785)" fill="#6adcbd"/>
+  <path id="Polígono_24" data-name="Polígono 24" d="M7,0l7,13H0Z" transform="translate(112.618 45.471)" fill="#6adcbd"/>
+  <path id="Polígono_27" data-name="Polígono 27" d="M7,0l7,13H0Z" transform="translate(86.618 4.471)" fill="#5abfa4"/>
+  <path id="Polígono_23" data-name="Polígono 23" d="M5,0l5,10H0Z" transform="translate(88.618 83.471)" fill="#5dbba1"/>
+  <path id="Polígono_32" data-name="Polígono 32" d="M3.5,0,7,7H0Z" transform="translate(64.618 108.471)" fill="#5dbba1"/>
+  <path id="Polígono_26" data-name="Polígono 26" d="M5,0l5,10H0Z" transform="translate(109.618 139.471)" fill="#6adcbd"/>
+  <path id="Polígono_20" data-name="Polígono 20" d="M14,0,28,26H0Z" transform="translate(102.618 70.471)" fill="#6adcbd"/>
+  <text id="Create" transform="translate(175.618 145.471)" fill="#7d7878" font-size="22" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Create</tspan></text>
+  <text id="Inspiration" transform="translate(246.618 125.471)" fill="#7d7878" font-size="9" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Inspiration</tspan></text>
+  <text id="Inovation" transform="translate(192.618 131.471)" fill="#fff" stroke="#707070" stroke-width="0.1" font-size="15" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Inovation</tspan></text>
+  <text id="Inspiration-2" data-name="Inspiration" transform="translate(241.618 116.471)" fill="#7d7878" font-size="7" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Inspiration</tspan></text>
+  <text id="Motivation" transform="translate(201.618 120.471)" fill="#dcd5d5" font-size="7" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Motivation</tspan></text>
+  <text id="Idea" transform="translate(210.618 111.471)" fill="#dcd5d5" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-2" data-name="Idea" transform="translate(231.618 100.471)" fill="#dcd5d5" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-3" data-name="Idea" transform="translate(257.618 89.471)" fill="#858383" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-4" data-name="Idea" transform="translate(268.618 99.471)" fill="#828282" font-size="9" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-5" data-name="Idea" transform="translate(251.618 148.471)" fill="#7d7878" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-6" data-name="Idea" transform="translate(192.618 111.471)" fill="#dcd5d5" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-7" data-name="Idea" transform="translate(168.618 130.471)" fill="#dcd5d5" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-8" data-name="Idea" transform="translate(162.618 137.471)" fill="#dcd5d5" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <text id="Idea-9" data-name="Idea" transform="translate(168.618 145.471)" fill="#7d7878" font-size="3" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Idea</tspan></text>
+  <circle id="Elipse_8" data-name="Elipse 8" cx="5.5" cy="5.5" r="5.5" transform="translate(123.618 123.471)" fill="#dda5a5"/>
+  <circle id="Elipse_9" data-name="Elipse 9" cx="7" cy="7" r="7" transform="translate(137.618 110.471)" fill="#dda5a5"/>
+  <circle id="Elipse_10" data-name="Elipse 10" cx="3.5" cy="3.5" r="3.5" transform="translate(129.618 115.471)" fill="#dda5a5"/>
+  <circle id="Elipse_11" data-name="Elipse 11" cx="4.5" cy="4.5" r="4.5" transform="translate(134.618 97.471)" fill="#dda5a5"/>
+  <circle id="Elipse_12" data-name="Elipse 12" cx="8" cy="8" r="8" transform="translate(141.618 80.471)" fill="#dda5a5"/>
+  <circle id="Elipse_20" data-name="Elipse 20" cx="8" cy="8" r="8" transform="translate(174.618 68.471)" fill="#dda5a5"/>
+  <circle id="Elipse_13" data-name="Elipse 13" cx="2.5" cy="2.5" r="2.5" transform="translate(139.618 71.471)" fill="#d37878"/>
+  <circle id="Elipse_14" data-name="Elipse 14" cx="2.5" cy="2.5" r="2.5" transform="translate(134.618 81.471)" fill="#dda5a5"/>
+  <circle id="Elipse_21" data-name="Elipse 21" cx="2.5" cy="2.5" r="2.5" transform="translate(163.618 100.471)" fill="#dda5a5"/>
+  <circle id="Elipse_15" data-name="Elipse 15" cx="1.5" cy="1.5" r="1.5" transform="translate(134.618 95.471)" fill="#e7c7c7"/>
+  <circle id="Elipse_16" data-name="Elipse 16" cx="1.5" cy="1.5" r="1.5" transform="translate(134.618 112.471)" fill="#dda5a5"/>
+  <circle id="Elipse_17" data-name="Elipse 17" cx="1.5" cy="1.5" r="1.5" transform="translate(140.618 107.471)" fill="#e7c7c7"/>
+  <circle id="Elipse_18" data-name="Elipse 18" cx="1.5" cy="1.5" r="1.5" transform="translate(126.618 106.471)" fill="#dda5a5"/>
+  <circle id="Elipse_19" data-name="Elipse 19" cx="1.5" cy="1.5" r="1.5" transform="translate(120.618 112.471)" fill="#dda5a5"/>
+  <path id="Caminho_29" data-name="Caminho 29" d="M8565.109-1026.613" transform="translate(-8236.382 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_30" data-name="Caminho 30" d="M8536.046-1008c33.751-18.613,14.376-33.926,14.376-33.926" transform="translate(-8236.382 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_31" data-name="Caminho 31" d="M8554.172-1015.743c14.688-12.745,9.375-18.371,9.375-18.371" transform="translate(-8236.382 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_32" data-name="Caminho 32" d="M8570.337-998c13.523-.8,11.961-7.362,11.961-7.362" transform="translate(-8236.382 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+  <path id="Caminho_33" data-name="Caminho 33" d="M8360.4-843c-26.973-6.795,0-82.321,0-82.321" transform="translate(-8247.795 1078.471)" fill="none" stroke="#707070" stroke-width="1"/>
+</svg>

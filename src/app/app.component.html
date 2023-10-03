@@ -1,0 +1,23 @@
+<clr-main-container id="main-container">
+  <app-header></app-header>
+  <clr-alerts>
+    <clr-alert
+      *ngFor="let alert of appAlerts; index as i"
+      [clrAlertType]="alert.type"
+      (clrAlertClosedChanged)="closeAlert(i)"
+      [clrAlertAppLevel]="true"
+    >
+      <clr-alert-item>
+        <span class="alert-text" style="text-align: center">{{ alert.message }}</span>
+      </clr-alert-item>
+    </clr-alert>
+  </clr-alerts>
+
+  <div class="page-spinner-container" *ngIf="showGlobalLoading">
+    <div class="fusion-page-loading">
+      <span></span>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</clr-main-container>

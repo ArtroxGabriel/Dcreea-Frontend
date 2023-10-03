@@ -1,0 +1,37 @@
+h3 {
+  background-color: transparent;
+  border-bottom: 3px solid #5fc2b0;
+  padding-bottom: 1rem;
+}
+
+h2 {
+  background-color: transparent;
+  border-bottom: 3px solid #52a798;
+}
+
+.ph {
+  background-color: transparent;
+  font-size: medium;
+}
+
+ul li {
+  background-color: transparent;
+  margin-top: 0.5rem;
+  color: #4a9286;
+  font-weight: 800;
+}
+
+ol li {
+  background-color: transparent;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+img {
+  background-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.img-container {
+  margin-top: 0.5rem;
+}

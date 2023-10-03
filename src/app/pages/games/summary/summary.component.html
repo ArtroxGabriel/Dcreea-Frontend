@@ -1,0 +1,270 @@
+<div class="clr-col-12">
+  <div class="content-area">
+    <div class="clr-row">
+      <div class="clr-col-10"></div>
+      <div class="clr-col-2">
+        <!-- [useExistingCss]="true" 
+          styleSheetFile="../../shared/styles/cardsAndDecks.css"
+          printSectionId="printable"
+        -->
+        <button [disabled]="modelErrors.length != 0" class="btn btn-primary float-items-right" (click)="downloadPDF()">Print Game</button>
+      </div>
+    </div>
+    <div *ngIf="modelErrors.length == 0">
+      <div #printable id="printable">
+        <div style="min-height: 1.5rem"></div>
+        <!-- capa -->
+        <div class="page-manual" [ngStyle]="{ 'min-height.px': (2.2 * (width * 210)) / 297 + 'px' }">
+          <div class="clr-row" style="text-align: center">
+            <div class="clr-col-12" style="margin-top: 6cm">
+              <h1 style="font-size: 60px">
+                <span style="font-weight: 800; font-size: larger">{{ game.name }}</span>
+              </h1>
+            </div>
+            <div class="clr-col-12" style="margin-top: 3rem">
+              <h2>{{ game.description }}</h2>
+            </div>
+            <div class="clr-col-12" style="margin-top: 3rem">
+              <h3>{{ game.authors }}</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="html2pdf__page-break"></div>
+        <div style="min-height: 1.5rem"></div>
+        <!-- game description page -->
+
+        <div class="page-manual" [ngStyle]="{ 'min-height.px': (width * 210) / 297 + 'px' }">
+          <div class="clr-row">
+            <div class="clr-col-6">
+              <div class="card card-border">
+                <div class="card-header">
+                  <span style="font-weight: 800; font-size: larger">{{ game.name }}</span>
+                </div>
+                <div class="card-block" style="font-size: large; min-height: 320px">{{ game.description }}. {{ game.simplyGameplay }}</div>
+              </div>
+            </div>
+            <div class="clr-col-6">
+              <div class="card card-border">
+                <div class="card-header"><span style="font-weight: 800; font-size: larger">Game Details</span></div>
+                <div class="card-block" style="min-height: 320px">
+                  <ul>
+                    <li style="font-size: large">target audience: {{ game.audience }}</li>
+                    <li style="font-size: large">knowledgeField: {{ game.knowledgeField }}</li>
+                    <li style="font-size: large">requirements: {{ game.requirements }}</li>
+                    <li style="font-size: large">authors: {{ game.authors }}</li>
+                    <li style="font-size: large">NumberPlayers: from {{ game.minNumberPlayers }} up to {{ game.maxNumberPlayers }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="clr-col-6">
+              <div class="card card-border">
+                <div class="card-header"><span style="font-weight: 800; font-size: larger">Game Material</span></div>
+                <div class="card-block" style="min-height: 320px">
+                  <p style="font-size: x-large">Decks</p>
+                  <ul *ngFor="let d of game.decks; let i = index">
+                    <li style="font-size: large">{{ d.name }}: {{ d.description }}. This deck has {{ d.cards.length }} cards</li>
+                  </ul>
+                  <!-- <p style="font-size: x-large;">Tokens</p> -->
+                  <!-- <p style="font-size: x-large;">Roles</p> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="clr-col-6">
+              <div class="card card-border">
+                <div class="card-header"><span style="font-weight: 800; font-size: larger">Game Basics</span></div>
+                <div class="card-block" style="min-height: 320px">
+                  <ul>
+                    <li style="font-size: large">This is a turn-based educational card game</li>
+                    <li style="font-size: large">We have {{ game.decks.length }} decks, and each one has a purpose</li>
+
+                    <!-- <li style="font-size: large;">We have 0 tokens, and each one has its effect(s)</li> -->
+                    <!-- <li style="font-size: large;">We have 0 player roles, and each one has its effect(s)</li> -->
+                    <li style="font-size: large">In its turn, the player must solve challenges to get victory points</li>
+                    <li style="font-size: large">Wins the game the player who has more victory points</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="html2pdf__page-break"></div>
+        <div style="min-height: 1.5rem"></div>
+
+        <!-- deck explication -->
+
+        <div class="page-manual" [ngStyle]="{ 'min-height.px': (width * 210) / 297 + 'px' }">
+          <div class="clr-row" *ngFor="let d of game.decks; let i = index">
+            <div class="clr-col-12">
+              <div class="card card-border">
+                <div class="card-header">
+                  <span style="font-weight: 800; font-size: larger">Deck {{ i + 1 }} - {{ d.name }}</span>
+                </div>
+                <div class="card-block" style="min-height: 320px">
+                  <div class="clr-row">
+                    <!-- deck fields -->
+                    <div class="clr-col-6">
+                      On <b>Front of each card</b> of this deck, we have:
+                      <ul>
+                        <li style="font-size: large" *ngIf="d.deckFront.title"><b>Title</b>: the title of the card</li>
+                        <li style="font-size: large" *ngIf="d.deckFront.art">
+                          <b>Art</b> (optional): the art of the card. This aims to ilustrate the card's content
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckFront.description">
+                          <b>Description</b>: the description aims to define the card's content/meaning
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckFront.effect"><b>Effect</b> (optional): the effect of the card</li>
+                        <li style="font-size: large" *ngIf="d.deckFront.cost">
+                          <b> Cost</b> (diamond-shape / optional): the cost to use this card. This type of point aims to balance the gain x
+                          price of a card, i.e., the highest the goods, highest the price to use.
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckFront.level">
+                          <b>Level</b> (circle - optional): the level required to use this card. This type of point is attached to the
+                          player level on gameplay. The idea is to evolve the level as the player is playing. This is used to allow players
+                          to evolve on gameplay, i.e., highest the level, hardest the challenge s/he can/is allowed to beat.
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckFront.earning">
+                          <b>Earning</b> (triangle - optional): the earning of the card when is used. It's recomended to be used on
+                          challenge or effect cards. The idea is the highest the earning, highest is the reward of the challenge. It's
+                          optional for games where all rewards are equal.
+                        </li>
+                      </ul>
+                      <hr />
+                      On <b>Back of each card</b> of this deck, we have
+                      {{
+                        d.deckBack.title ||
+                        d.deckBack.answers ||
+                        d.deckBack.effect ||
+                        d.deckBack.cost ||
+                        d.deckBack.level ||
+                        d.deckBack.earning
+                          ? ":"
+                          : "nothing enabled, just the logo"
+                      }}
+                      <ul
+                        *ngIf="
+                          d.deckBack.title ||
+                          d.deckBack.answers ||
+                          d.deckBack.effect ||
+                          d.deckBack.cost ||
+                          d.deckBack.level ||
+                          d.deckBack.earning
+                        "
+                      >
+                        <li style="font-size: large" *ngIf="d.deckBack.title"><b>Title</b>: the title of the card</li>
+                        <li style="font-size: large" *ngIf="d.deckBack.answers">
+                          <b>Answers</b>: the answers of a given challenge. This is recomended to challenge cards, but can be used as any
+                          type of pré-message (since the player will see this side first)
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckBack.effect"><b>Effect</b> (optional): the effect of the card</li>
+                        <li style="font-size: large" *ngIf="d.deckBack.cost">
+                          <b> Cost</b> (diamond-shape / optional): the cost is the same as the front. However, this is seed by the player
+                          only s/he turns the card, so it's ideal to surprise cost.
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckBack.level">
+                          <b>Level</b> (circle - optional): the level is the same as the front. However, this is seed by the player only
+                          s/he turns the card, so it's ideal to surprise level.
+                        </li>
+                        <li style="font-size: large" *ngIf="d.deckBack.earning">
+                          <b>Earning</b> (triangle - optional): the earning is the same as the front. However, this is seed by the player
+                          only s/he turns the card, so it's ideal to surprise reward.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="clr-col-6">
+                      <app-card
+                        [deck]="d"
+                        [card]="cardDefault"
+                        cardWidth="200"
+                        marginBetwCards="15"
+                        [back]="
+                          d.deckBack.title ||
+                          d.deckBack.answers ||
+                          d.deckBack.effect ||
+                          d.deckBack.cost ||
+                          d.deckBack.level ||
+                          d.deckBack.earning
+                        "
+                      ></app-card>
+                    </div>
+                    <!-- expl -->
+                    <div class="clr-col-12"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="html2pdf__page-break"></div>
+
+        <!-- game rules  -->
+
+        <div class="page-manual" [ngStyle]="{ 'min-height.px': (width * 210) / 297 + 'px' }">
+          <div class="clr-row">
+            <div class="clr-col-12">
+              <div class="card card-border">
+                <div class="card-header"><span style="font-weight: 800; font-size: larger">Game Rules</span></div>
+
+                <div *ngFor="let r of ruleLines">
+                  <div
+                    class="card-block"
+                    [ngStyle]="{
+                      border: r.includes('* ') ? '2px solid #dedede' : '0px',
+                      'background-color': r.includes('* ') ? '#52a79850' : '#dedede50',
+                      'font-weight': r.includes('* ') ? '800' : 'regular'
+                    }"
+                  >
+                    <p
+                      style="font-size: x-large"
+                      [ngStyle]="{
+                        'font-weight': r.includes('* ') ? '800' : 'regular',
+                        'font-size': 'large'
+                      }"
+                      style="margin: 3px 0px"
+                    >
+                      {{ r }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card-block">
+                  <!-- game diagram  -->
+                  <app-drag [game]="game" (save)="savePositions($event)"></app-drag>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="html2pdf__page-break"></div>
+      </div>
+      <div #cardsToPrint id="cardsToPrint">
+        <div>
+          <div *ngFor="let d of game.decks; let i = index">
+            <!-- <div style="min-height: 1.5rem"></div> -->
+            <!-- <p style="font-size: x-large">Cards to Print - {{ d.name }}</p> -->
+            <div class="clr-row" *ngFor="let card of game.decks[i].cards; let j = index">
+              <app-card
+                class="clr-col-4"
+                style="margin-bottom: 0.4rem; margin-top: 0.48rem"
+                *ngFor="let r of range(game.decks[i].cards[j].repetitions)"
+                [deck]="d"
+                [card]="game.decks[i].cards[j]"
+                cardWidth="232"
+                marginBetwCards="2"
+                [back]="
+                  d.deckBack.title || d.deckBack.answers || d.deckBack.effect || d.deckBack.cost || d.deckBack.level || d.deckBack.earning
+                "
+              ></app-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

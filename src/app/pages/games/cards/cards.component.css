@@ -1,0 +1,12 @@
+.float-left {
+  float: left;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  clear: both;
+  display: table;
+}

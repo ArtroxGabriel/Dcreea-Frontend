@@ -1,0 +1,142 @@
+<div class="card">
+  <div class="card-header">Game Description</div>
+  <div class="card-block">
+    <div class="clr-col-12">
+      <form clrForm>
+        <div class="clr-row">
+          <div class="clr-col-6">
+            <clr-input-container>
+              <label>Name of the Game</label>
+              <input placeholder="Name..." clrInput name="name" [(ngModel)]="game.name" type="text" required />
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+
+            <clr-input-container>
+              <label>Authors</label>
+              <input clrInput name="authors" [(ngModel)]="game.authors[0]" placeholder="Mary;John;..." required />
+              <clr-control-helper>Author's names must be separated with ';'</clr-control-helper>
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+
+            <clr-textarea-container>
+              <label
+                >Simplified gameplay<span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content">The gameplay explained in a summary way</span>
+                  </a></span
+                ></label
+              >
+              <textarea
+                clrTextarea
+                name="simplyGameplay"
+                [(ngModel)]="game.simplyGameplay"
+                placeholder="This game is played..."
+                required
+              ></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+            <clr-textarea-container>
+              <label
+                >Description
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content">Describe briefly the game you're creating. What is the objective? What is it for?</span>
+                  </a></span
+                ></label
+              >
+              <textarea
+                clrTextarea
+                name="description"
+                [(ngModel)]="game.description"
+                placeholder="This game is about..."
+                required
+              ></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+          </div>
+
+          <div class="clr-col-6">
+            <clr-textarea-container>
+              <label
+                >Target Audience
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >Describe briefly the public for your game. What are the characteristics of the players?</span
+                    >
+                  </a></span
+                ></label
+              >
+              <textarea clrTextarea name="audience" placeholder="Público-alvo..." [(ngModel)]="game.audience" required></textarea>
+              <clr-control-error>required!</clr-control-error>
+            </clr-textarea-container>
+
+            <clr-input-container>
+              <label
+                >Knowledge Field
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >Describe briefly the knowledge field of your game. Example: programming, software testing</span
+                    >
+                  </a></span
+                ></label
+              >
+              <input
+                clrInput
+                name="knowledgeField"
+                [(ngModel)]="game.knowledgeField"
+                type="text"
+                placeholder="Engenharia de Software"
+                required
+              />
+            </clr-input-container>
+            <clr-input-container>
+              <label
+                >Required knowledge
+                <span
+                  ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+                    <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+                    <span class="tooltip-content"
+                      >Describe briefly required knowledge to play this game. What the players need to know/study before playing?</span
+                    >
+                  </a></span
+                ></label
+              >
+              <input
+                clrInput
+                name="requirements"
+                [(ngModel)]="game.requirements"
+                type="text"
+                placeholder="UML, lógica de programação"
+                required
+              />
+            </clr-input-container>
+            <div class="clr-row">
+              <div class="clr-col-6">
+                <clr-input-container>
+                  <label>Min. Number of Players</label>;
+                  <input clrInput name="minNumberPlayers" [(ngModel)]="game.minNumberPlayers" type="number" min="0" required />
+                </clr-input-container>
+              </div>
+              <div class="clr-col-6">
+                <clr-input-container>
+                  <label>Max. Number of Players</label>
+                  <input clrInput name="maxNumberPlayers" [(ngModel)]="game.maxNumberPlayers" type="number" min="0" required />
+                </clr-input-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-danger float-items-right" (click)="clear()">Clear</button>
+    <button class="btn btn-primary float-items-right" (click)="saveGame()">Save</button>
+  </div>
+</div>

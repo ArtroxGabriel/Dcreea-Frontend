@@ -1,0 +1,134 @@
+<div class="clr-col-12" #printable id="printable">
+  <div class="content-area">
+    <!-- sec 1 -->
+    <div class="clr-row" style="padding: 7rem 0px; background-color: #52a798">
+      <div class="clr-col-2"></div>
+      <div class="clr-col-6">
+        <div>
+          <h1 class="title-white">D-CreEA - A Tool to Aid The Process of Creating an Educational Card Game</h1>
+        </div>
+        <div>
+          <p style="color: white">This tool was developed in a master's thesis in partnership with the Federal University of Ceará</p>
+        </div>
+        <div>
+          <p style="color: white">Author: Rubens Silva</p>
+        </div>
+        <div style="margin-top: 2rem">
+          <button class="btn btn-primary float-items-right" (click)="createNew()">Get Start Now</button>
+        </div>
+      </div>
+      <div class="clr-col-3" style="background-color: #4a9286; border-radius: 50%">
+        <div style="text-align: center; height: 100%">
+          <img src="../../../assets/images/logo.svg" width="100%" class="img-fluid" alt="Imagem cards" />
+        </div>
+      </div>
+    </div>
+
+    <!-- sec 2 - O QUE É -->
+    <div class="clr-row" style="padding: 7rem 0px; background-color: #f0f0f0">
+      <div class="clr-col-5">
+        <div style="text-align: center; height: 100%">
+          <img src="../../../assets/images/home2.svg" width="75%" class="img-fluid" alt="Imagem cards" />
+        </div>
+      </div>
+      <div class="clr-col-6">
+        <h2 class="title-dark">O que é o D-CreEA Card Games?</h2>
+        <p>D-CreEA é um software para auxiliar professores na criação de jogos de cartas educacionais</p>
+        <p>Os jogos criados pela ferramenta podem ser impressas juntamente ao manual do jogo</p>
+        <p>O professor pode personalizar seu jogo de acordo com seu conteúdo pedagógico</p>
+        <p>O grande diferencial da D-CreEA é: o professor não necessita ter conhecimento em design de jogos</p>
+        <p></p>
+
+        <!-- <button class="btn btn-primary float-items-right" (click)="createNew()">See More</button> -->
+      </div>
+    </div>
+
+    <!-- sec - CUSTOMIZAVEL -->
+    <div class="clr-row" style="padding: 7rem 0px; background-color: #dedede">
+      <div class="clr-col-1"></div>
+      <div
+        class="clr-col-5"
+        style="background-color: rgb(59, 59, 59); border-radius: 0.5rem; padding: 2.5rem; border: 2px solid #dedede; color: white"
+      >
+        <h2 class="title-white">USE SUA CRIATIVIDADE</h2>
+        <p style="color: #dedede">
+          As cartas e os Decks de jogo são customizáveis: você pode escolher os campos que vão aparecer nas cartas, suas pontuações, as
+          cores, tudo de forma fácil
+        </p>
+        <p style="color: #dedede">As regras do jogo são totalmente editáveis, e contam com guias para a criação se for necessário</p>
+        <p style="color: #dedede">
+          Com o D-CreEA, todo o processo de prototipação de cartas, ajustes, GDD, game loop, etc. são previamente setados, facilitando o
+          desenvolvimento dos jogos
+        </p>
+      </div>
+      <div class="clr-col-6">
+        <div style="text-align: center; height: 100%">
+          <img src="../../../assets/images/criatividade.svg" width="87%" class="img-fluid" alt="Imagem cards" />
+        </div>
+      </div>
+    </div>
+
+    <!-- sec 2 - NON EXPERTS -->
+    <div class="clr-row" style="padding: 7rem 0px; background-color: #f0f0f0">
+      <div class="clr-col-6">
+        <div style="text-align: center; height: 100%; margin-left: 2.7rem">
+          <img src="../../../assets/images/card.svg" width="39%" class="img-fluid" alt="Imagem cards" />
+        </div>
+      </div>
+      <div class="clr-col-6" style="padding: 0px 2.5rem; border-left: 2px solid #dedede">
+        <h2 class="title-dark">Para Não-Experts</h2>
+        <p style="margin-bottom: 1rem">
+          Para facilitar a vida dos professores que não tem ou tem pouco conhecimento em design de jogos, criamos os seguintes artefatos:
+        </p>
+        <ul>
+          <li>Um jogo exemplo pré-implementado está disponível para facilitar o entendimento e a manipulação da D-CreEA</li>
+          <li>Game Design Document padrão, sendo necessário apenas editar</li>
+          <li>Game Loop com mecanismo de drag-n-drop para auxiliar na edição</li>
+          <li>Modelo de cartas e decks com campos pré-definidos</li>
+        </ul>
+
+        <p>
+          Além disso tudo, você pode consultar o <span style="font-weight: 800">Guia de Criação de Jogos</span> e os
+          <span style="font-weight: 800">Tutoriais disponíveis</span>.
+        </p>
+
+        <button class="btn btn-primary float-items-right" (click)="gotoHelp()">See More</button>
+      </div>
+    </div>
+
+    <!-- sec 4 - FEATURES -->
+    <div class="clr-row" style="padding: 7rem 0px; background-color: #52a798">
+      <div class="clr-col-6">
+        <div style="text-align: center; height: 100%">
+          <img src="../../../assets/images/card2.svg" width="75%" class="img-fluid" alt="Imagem cards" />
+        </div>
+      </div>
+      <div class="clr-col-5" style="background-color: #f9f9f9; border-radius: 0.5rem; border: 2px solid #dedede; padding: 2rem">
+        <h2 class="title-dark">Features</h2>
+        <ul>
+          <li>Game Design Document</li>
+          <li>Criação e personalização de Cartas</li>
+          <li>Criação e personalização de Decks</li>
+          <li>Game Loop facilitado</li>
+          <li>Regras personalizadas</li>
+          <li>Exemplo prático disponível</li>
+          <li>Manual do jogo automatizado</li>
+          <li>Impressão de cartas e manual a apenas um botão de distância</li>
+        </ul>
+        <p></p>
+        <button class="btn btn-primary float-items-right" (click)="createNew()">Get Start Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <app-footer></app-footer>
+</div>
+
+<clr-modal [(clrModalOpen)]="visibleLogin">
+  <h3 class="modal-title">Login</h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede; border-bottom: 1px solid #dedede">
+    <app-login></app-login>
+  </div>
+  <div class="modal-footer"></div>
+</clr-modal>

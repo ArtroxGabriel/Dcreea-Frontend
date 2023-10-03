@@ -1,0 +1,24 @@
+<div class="content-area">
+  <div class="clr-row">
+    <div class="clr-col-12">
+      <div class="card" style="margin: 5px 0px; min-height: 100%">
+        <div class="card-block">
+          <clr-tabs>
+            <clr-tab>
+              <button class="btn-tab-details" clrTabLink>Login</button>
+              <clr-tab-content *clrIfActive="true">
+                <app-enter></app-enter>
+              </clr-tab-content>
+            </clr-tab>
+            <clr-tab>
+              <button clrTabLink>Sign in</button>
+              <clr-tab-content *clrIfActive>
+                <app-sign-in></app-sign-in>
+              </clr-tab-content>
+            </clr-tab>
+          </clr-tabs>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

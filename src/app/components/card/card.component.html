@@ -1,0 +1,191 @@
+<div
+  *ngIf="card"
+  [ngStyle]="{
+    'margin-left.px': marginLeft
+  }"
+>
+  <!-- card front -->
+  <!-- card front -->
+  <!-- card front -->
+  <div
+    class="card-wrapper float-left"
+    [ngStyle]="{
+      'background-color': d.color,
+      'width.px': cardWidth,
+      'height.px': cardHeight,
+      'margin-right.px': marginBetwCards
+    }"
+  >
+    <div class="card-margins">
+      <div class="card-game-header" *ngIf="d.deckFront.title">{{ card.cardFront.title }}</div>
+      <div class="card-game-body">
+        <div class="card-art" *ngIf="d.deckFront.art" style="position: relative">
+          <div style="width: 100%; height: 100%" class="centering">
+            <!-- <cds-icon shape="cog" size="xxl"></cds-icon> -->
+            <img *ngIf="card.cardFront.art" [src]="card.cardFront.art" height="100%" width="auto" class="img-fluid" alt="card-art" />
+            <img
+              *ngIf="!card.cardFront.art"
+              src="../../../assets/images/templates/placeholder.png"
+              height="100%"
+              width="auto"
+              class="img-fluid"
+              alt="placeholder"
+            />
+          </div>
+          <button
+            *ngIf="showImageForm"
+            class="btn btn-outline-info"
+            style="position: absolute; top: 0.25rem; right: 0.05rem; background-color: #ffffff80"
+            (click)="showImagePopup()"
+          >
+            <cds-icon shape="plus" size="sm"></cds-icon>
+          </button>
+        </div>
+        <div class="card-description" *ngIf="d.deckFront.description" [ngStyle]="{ height: d.deckFront.effect ? '25%' : '50%' }">
+          <p class="card-body-text">{{ card.cardFront.description }}</p>
+        </div>
+        <div class="card-effect" *ngIf="d.deckFront.effect">
+          <p class="card-body-text">{{ card.cardFront.effect }}</p>
+        </div>
+      </div>
+      <div class="card-game-footer">
+        <div class="float-items-right clr-col-4 vertical-center-input" *ngIf="d.deckFront.cost">
+          <img src="../../../assets/images/cost.svg" height="100%" width="auto" class="img-fluid" alt="card-cost" />
+          <label class="card-point-label">{{ card.cardFront.cost }}</label>
+        </div>
+
+        <div
+          class="float-items-right clr-col-4 vertical-center-input"
+          *ngIf="d.deckFront.level"
+          style="border-left: 1px solid #707070; border-right: 1px solid #707070"
+        >
+          <img src="../../../assets/images/level.svg" height="100%" width="auto" class="img-fluid" alt="card-level" />
+          <label class="card-point-label">{{ card.cardFront.level }}</label>
+        </div>
+
+        <div class="float-items-right clr-col-4 vertical-center-input" *ngIf="d.deckFront.earning">
+          <img src="../../../assets/images/earning.svg" height="100%" width="auto" class="img-fluid" alt="card-earning" />
+          <label class="card-point-label">{{ card.cardFront.earning }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card back -->
+  <!-- card back -->
+  <!-- card back -->
+  <div
+    *ngIf="back"
+    class="card-wrapper clearfix"
+    [ngStyle]="{
+      'background-color': d.color,
+      'width.px': cardWidth,
+      'height.px': cardHeight
+    }"
+  >
+    <div class="card-margins">
+      <div class="card-game-header-back">
+        <p *ngIf="d.deckBack.title" class="card-text">{{ card.cardBack.title }}</p>
+      </div>
+      <div class="card-game-body">
+        <div class="card-answers" [ngStyle]="{ height: d.deckBack.effect ? '75%' : '100%' }">
+          <div class="clr-row">
+            <div *ngFor="let ans of card.cardBack.answers.split(';')" class="clr-col-12">
+              <p class="card-answer-text">- {{ ans }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-effect" *ngIf="d.deckBack.effect">
+          <p class="card-body-text">{{ card.cardBack.effect }}</p>
+        </div>
+      </div>
+      <div class="card-game-footer-back">
+        <div class="float-items-right clr-col-4 vertical-center-input" *ngIf="d.deckBack.cost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26.87" height="26.87" viewBox="0 0 26.87 26.87">
+            <g
+              id="Retângulo_28"
+              data-name="Retângulo 28"
+              transform="translate(0 13.435) rotate(-45)"
+              fill="#e5ee9a"
+              stroke="#707070"
+              stroke-width="3"
+            >
+              <rect width="19" height="19" stroke="none" />
+              <rect x="1.5" y="1.5" width="16" height="16" fill="none" />
+            </g>
+          </svg>
+          <label class="card-point-label">{{ card.cardBack.cost }}</label>
+        </div>
+
+        <div
+          class="float-items-right clr-col-4 vertical-center-input"
+          *ngIf="d.deckBack.level"
+          style="border-left: 1px solid #707070; border-right: 1px solid #707070"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g id="Elipse_5" data-name="Elipse 5" fill="#956aea" stroke="#707070" stroke-width="3">
+              <circle cx="12" cy="12" r="12" stroke="none" />
+              <circle cx="12" cy="12" r="10.5" fill="none" />
+            </g>
+          </svg>
+          <label class="card-point-label">{{ card.cardBack.level }}</label>
+        </div>
+
+        <div class="float-items-right clr-col-4 vertical-center-input" *ngIf="d.deckBack.earning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 28 24">
+            <g id="Polígono_4" data-name="Polígono 4" fill="#66f9be">
+              <path d="M 25.38844108581543 22.5 L 2.611559152603149 22.5 L 14 2.976958513259888 L 25.38844108581543 22.5 Z" stroke="none" />
+              <path
+                d="M 14 5.953907012939453 L 5.223112106323242 21 L 22.77688789367676 21 L 14 5.953907012939453 M 14 0 L 28 24 L 0 24 L 14 0 Z"
+                stroke="none"
+                fill="#707070"
+              />
+            </g>
+          </svg>
+          <label class="card-point-label">{{ card.cardBack.earning }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="!back"
+    class="card-wrapper centering clearfix"
+    [ngStyle]="{
+      'background-color': d.color,
+      'width.px': cardWidth,
+      'height.px': cardHeight
+    }"
+  >
+    <div style="text-align: center; width: 30%">
+      <img src="../../../assets/images/smp-logo.svg" width="100%" class="img-fluid" alt="Imagem cards" />
+    </div>
+  </div>
+</div>
+
+<clr-modal clrModalSize="xl" [(clrModalOpen)]="showPopup">
+  <h3 class="modal-title">Choose a Image</h3>
+  <div class="modal-body">
+    <div class="card-block">
+      <div class="clr-row">
+        <div *ngFor="let img of images; index as i" class="imgClicked clr-col-3" style="padding: 1rem">
+          <div class="">
+            <img
+              id="{{ 'img' + i }}"
+              [src]="img"
+              height="auto"
+              width="100%"
+              (click)="selectImage(img, 'img' + i)"
+              class="img-fluid"
+              [alt]="img"
+              style="border: 1px solid #dedede"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary float-items-right" (click)="done()">Ok</button>
+  </div>
+</clr-modal>

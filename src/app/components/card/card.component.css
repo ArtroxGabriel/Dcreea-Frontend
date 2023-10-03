@@ -1,0 +1,23 @@
+.overlay {
+  right: -0.2rem;
+  position: absolute;
+  top: -0.2rem;
+
+  /* Take full size */
+  width: 100%;
+
+  /* Center the content */
+  display: flex;
+  align-items: center;
+  /* align-items: flex-start; */
+  justify-content: center;
+}
+
+.imgClicked :hover {
+  cursor: pointer;
+}
+
+.imgClicked :active {
+  border: 1px solid #b99964;
+  background-color: #dedede;
+}

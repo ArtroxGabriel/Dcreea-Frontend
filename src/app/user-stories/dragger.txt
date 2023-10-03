@@ -1,0 +1,48 @@
+dragable doss estados
+
+- objetos
+*** posição: ponto central, largura e altura
+*** texto junto ao ponto central
+*** cor
+--- retangulo: estado (
+--- losango  (circulo): condição atrelada ao estado
+--- arestas: relações entre os estados
+
+como colocar tudo isso na tela?
+
+lista de retangulos
+lista de condicional
+lista de arestas
+
+area util no canvas de 90% vertical e horizontal - o resto é bordas
+a altura e largura do grafo
+delta fixo entre estados na horizontal e vertical
+deltah: 
+
+altura do estado terá limiar máximo
+
+1. apagar tudo do canvas
+2. percorrer todos os objetos e desenhar um a um
+
+heuristica de desenho: 
+- limitado horizontalmente, mas pode aumentar sem limite na vertical
+- grid: L x H tiles
+--- cada tile tem um estado de hs x ls px
+--- todo estado tem a mesma largura e altura (portrait) - o texto, caso exceda, deve ser cortado
+--- achar a largura do grafo
+--- cada tile tem l x h px, sendo l dependente da largura do grafo, h = hs + margin
+
+- para achar a largura do grafo, percorro os estados
+-- cada estado vem de uma transição
+---- adicionar a altura o numero de condições - 1
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<div>
+  <form clrForm>
+    <div class="card">
+      <div class="card-block">
+        <clr-input-container>
+          <label>New Email</label>
+          <input
+            placeholder="Email@domain.com"
+            clrInput
+            name="email"
+            value="request.email"
+            [(ngModel)]="request.email"
+            type="email"
+            required
+          />
+          <clr-control-error>required!</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+          <label>New Password</label>
+          <input
+            placeholder="password@domain.com"
+            clrInput
+            name="password"
+            value="request.password"
+            [(ngModel)]="request.password"
+            type="password"
+            required
+          />
+          <clr-control-error>required!</clr-control-error>
+        </clr-input-container>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary float-items-right" (click)="SignIn()">Sign in</button>
+      </div>
+    </div>
+  </form>
+</div>

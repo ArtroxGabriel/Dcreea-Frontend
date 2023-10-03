@@ -1,0 +1,55 @@
+<clr-header>
+  <div class="branding">
+    <a class="nav-link" href="#" (click)="closeHamburger()" [routerLink]="['/home']">
+      <!-- <clr-icon shape="eye" size="md"></clr-icon>
+      <span class="header-logo-separator"></span> -->
+      <div style="background-color: #30665d; text-align: center; height: 100%">
+        <img
+          src="../../../assets/images/smp-logo.svg"
+          height="95%"
+          width="auto"
+          class="img-fluid"
+          alt="Imagem cards"
+          style="margin-left: 7px"
+        />
+      </div>
+      <span class="header-logo-separator"></span>
+      <span class="title">D-CreEA Card Games</span>
+    </a>
+  </div>
+  <div class="header-nav" [clr-nav-level]="1">
+    <clr-dropdown class="dropdown-nav">
+      <span class="dropdown-trigger-wrapper" [ngClass]="{ active: activeMenu === 2 }">
+        <button type="button" class="btn btn-nav" clrDropdownTrigger (click)="activeMenu = 2">
+          Help <clr-icon shape="caret down"></clr-icon>
+        </button>
+      </span>
+      <clr-dropdown-menu *clrIfOpen>
+        <a href="#" [routerLink]="['/help']" (click)="closeHamburger()" clrDropdownItem>How to Create a Game</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+    <clr-dropdown class="dropdown-nav">
+      <span class="dropdown-trigger-wrapper" [ngClass]="{ active: activeMenu === 2 }">
+        <button type="button" class="btn btn-nav" clrDropdownTrigger (click)="activeMenu = 2">
+          About <clr-icon shape="caret down"></clr-icon>
+        </button>
+      </span>
+      <clr-dropdown-menu *clrIfOpen>
+        <a href="#" [routerLink]="['/disclaimer']" (click)="closeHamburger()" clrDropdownItem>Disclaimer</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+  <div class="header-actions">
+    <clr-dropdown *ngIf="userLogin" style="padding-right: 3rem; background-color: #3f8378">
+      <span class="dropdown-trigger-wrapper user-menu">
+        <button type="button" class="btn btn-primary" clrDropdownTrigger>
+          <cds-icon inverse solid shape="employee" size="md"></cds-icon>
+        </button>
+      </span>
+      <clr-dropdown-menu *clrIfOpen>
+        <a href="#" (click)="closeHamburger()" [routerLink]="['/user/projects']" clrDropdownItem>Projects</a>
+        <a href="#" (click)="logout()" clrDropdownItem>Log out</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</clr-header>

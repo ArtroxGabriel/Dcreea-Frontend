@@ -1,0 +1,376 @@
+<div class="card">
+  <div class="card-header">
+    <div class="clr-row">
+      <div class="clr-col-10">
+        Conditional Rule
+        <span
+          ><a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-top-right">
+            <cds-icon status="success" shape="info-circle" size="md"></cds-icon>
+            <span class="tooltip-content"
+              >This type of rule, unlike Statement Rule, is applied only when some of the defined conditions happens while a game situation
+              occurs. The decision of whether apply or not can only be determinated while playing.</span
+            >
+          </a></span
+        >
+      </div>
+      <div class="clr-col-2">
+        <!-- <button class="btn btn-primary float-items-right" (click)="saveRule()">Salvar</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="card-block">
+    <div class="clr-col-12">
+      <form clrForm>
+        <div class="clr-row">
+          <div class="clr-col-8">
+            <clr-input-container>
+              <label>Label</label>
+              <input clrInput name="label" type="text" placeholder="Label..." value="rule.label" [(ngModel)]="rule.label" required />
+
+              <clr-control-error>required!</clr-control-error>
+            </clr-input-container>
+          </div>
+          <div class="clr-col-4">
+            <button *ngIf="!rule.failureCondition" class="btn btn-primary float-items-right" (click)="onAddFailureCondition()">
+              Add Failure Condition
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- conditions grid -->
+  <div class="card-block">
+    <div class="card">
+      <div class="card-header">
+        <div class="clr-row">
+          <div class="clr-col-8">Conditions</div>
+          <div class="clr-col-4">
+            <button class="btn btn-primary float-items-right" (click)="onAddCondition()">Add Condition</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-block">
+        <clr-datagrid>
+          <clr-dg-row *ngFor="let c of rule.conditions; let i = index">
+            <clr-dg-action-overflow>
+              <button class="action-item" (click)="onEditCondition(i)">Edit</button>
+              <button class="action-item" (click)="onDeleteCondition(i)">Delete</button>
+            </clr-dg-action-overflow>
+
+            <clr-dg-cell>IF: {{ c.test }}</clr-dg-cell>
+            <clr-dg-cell>DO: {{ c.effectIfTrue.simpleEffect }}</clr-dg-cell>
+            <clr-dg-cell>THEN GO TO STATE: {{ c.stateIfTrue }}</clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer>{{ rule.conditions.length }} conditions</clr-dg-footer>
+        </clr-datagrid>
+        <clr-datagrid *ngIf="rule.failureCondition">
+          <clr-dg-row *ngFor="let c of [rule.failureCondition]; let i = index">
+            <clr-dg-action-overflow>
+              <button class="action-item" (click)="onEditFailureCondition()">Edit</button>
+            </clr-dg-action-overflow>
+
+            <clr-dg-cell>(Faulire condition)</clr-dg-cell>
+            <clr-dg-cell>IF: {{ c.test }}</clr-dg-cell>
+            <clr-dg-cell>DO: {{ c.effectIfTrue.simpleEffect }}</clr-dg-cell>
+            <clr-dg-cell>THEN GO TO STATE: {{ c.stateIfTrue }}</clr-dg-cell>
+          </clr-dg-row>
+        </clr-datagrid>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="clr-row">
+      <div class="clr-col-9"></div>
+      <div class="clr-col-3">
+        <button class="btn btn-primary float-items-right" (click)="saveRule()">Save Rule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-modal clrModalSize="xl" [(clrModalOpen)]="openCreateCondition">
+  <h3 class="modal-title">Create a Condition</h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede; border-bottom: 1px solid #dedede">
+    <div class="card-block">
+      <form clrForm>
+        <div>
+          <div class="clr-row">
+            <div class="card-block clr-col-6">
+              <clr-textarea-container>
+                <label>Test *</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="condition.test"
+                  name="condition.test"
+                  placeholder="What will be tested?"
+                  required
+                ></textarea>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <!-- state if true -->
+              <clr-select-container>
+                <label>Go to State If Test True</label>
+                <select clrSelect name="stateIfTrue" [(ngModel)]="condition.stateIfTrue">
+                  <option [ngValue]="" disabled selected>select state</option>
+                  <option *ngFor="let st of game.states" [value]="st.label">
+                    {{ st.label }}
+                  </option>
+                </select>
+                <clr-control-error>required!</clr-control-error>
+              </clr-select-container>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+          <!-- effectIfTrue -->
+          <div class="clr-row">
+            <div class="card-block clr-col-6">
+              <clr-textarea-container>
+                <label>Effect Simplified*</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="condition.effectIfTrue.simpleEffect"
+                  name="condition.effectIfTrue.simpleEffect"
+                  placeholder="What happens If Tests true?"
+                  required
+                ></textarea>
+                <clr-control-helper>Describe the effect simply</clr-control-helper>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <clr-toggle-container>
+                <clr-toggle-wrapper>
+                  <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="specificEffect" />
+                  <label>More precise effect?</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+            </div>
+            <!-- specific effect -->
+            <div class="card-block clr-col-6" *ngIf="specificEffect">
+              <clr-textarea-container>
+                <label>Status Change*</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="condition.effectIfTrue.statusChange"
+                  name="condition.effectIfTrue.statusChange"
+                  placeholder="What changes If Tests true?"
+                  required
+                ></textarea>
+                <clr-control-helper>Describe what changes on the affected</clr-control-helper>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <clr-toggle-container>
+                <label>Effect duration</label>
+                <clr-toggle-wrapper>
+                  <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="condition.effectIfTrue.forever" />
+                  <label>For the rest of the game</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+
+              <clr-input-container>
+                <label>Turns *</label>
+                <input
+                  clrInput
+                  name="turns"
+                  type="number"
+                  placeholder="How long this effect lasts"
+                  value="condition.effectIfTrue.turns"
+                  [(ngModel)]="condition.effectIfTrue.turns"
+                  [disabled]="condition.effectIfTrue.forever"
+                  min="1"
+                />
+                <clr-control-error>required!</clr-control-error>
+                <clr-control-helper>If not forever, for how many turns this lasts?</clr-control-helper>
+              </clr-input-container>
+
+              <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+              <clr-toggle-container>
+                <label>On whom to apply?</label>
+                <clr-toggle-wrapper>
+                  <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="condition.effectIfTrue.toSelf" />
+                  <label>On self player?</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+
+              <clr-input-container>
+                <label>Specific type of player *</label>
+                <input
+                  clrInput
+                  name="toSpecific"
+                  type="text"
+                  placeholder="e.g, on any player that has x points or more"
+                  value="condition.effectIfTrue.toSpecific"
+                  [(ngModel)]="condition.effectIfTrue.toSpecific"
+                  [disabled]="condition.effectIfTrue.toSelf"
+                />
+                <clr-control-helper>If not on self, on whom?</clr-control-helper>
+              </clr-input-container>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary float-items-right" (click)="addCondition()">Add</button>
+  </div>
+</clr-modal>
+
+<clr-modal clrModalSize="xl" [(clrModalOpen)]="openFailureCondition">
+  <h3 class="modal-title">Create a Failure Condition</h3>
+  <div class="modal-body" style="border-top: 1px solid #dedede; border-bottom: 1px solid #dedede">
+    <div class="card-block">
+      <form clrForm>
+        <div>
+          <div class="clr-row">
+            <div class="card-block clr-col-6">
+              <clr-textarea-container>
+                <label>Test that fails*</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="failureCondition.test"
+                  name="failureCondition.test"
+                  placeholder="What will be tested?"
+                  required
+                ></textarea>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <!-- state if true -->
+              <clr-select-container>
+                <label>Go to State</label>
+                <select clrSelect name="stateIfTrue" [(ngModel)]="failureCondition.stateIfTrue">
+                  <option [ngValue]="" disabled selected>select state</option>
+                  <option *ngFor="let st of game.states" [value]="st.label">
+                    {{ st.label }}
+                  </option>
+                </select>
+                <clr-control-error>required!</clr-control-error>
+              </clr-select-container>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+          <!-- effectIfTrue -->
+          <div class="clr-row">
+            <div class="card-block clr-col-6">
+              <clr-textarea-container>
+                <label>Effect Simplified*</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="failureCondition.effectIfTrue.simpleEffect"
+                  name="failureCondition.effectIfTrue.simpleEffect"
+                  placeholder="What happens If Tests true?"
+                  required
+                ></textarea>
+                <clr-control-helper>Describe the effect simply</clr-control-helper>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <clr-toggle-container>
+                <clr-toggle-wrapper>
+                  <input type="checkbox" clrToggle name="options" required value="true" [(ngModel)]="specificEffect" />
+                  <label>More precise effect?</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+            </div>
+            <!-- specific effect -->
+            <div class="card-block clr-col-6" *ngIf="specificEffect">
+              <clr-textarea-container>
+                <label>Status Change*</label>
+                <textarea
+                  clrTextarea
+                  [(ngModel)]="failureCondition.effectIfTrue.statusChange"
+                  name="failureCondition.effectIfTrue.statusChange"
+                  placeholder="What changes If Tests true?"
+                  required
+                ></textarea>
+                <clr-control-helper>Describe what changes on the affected</clr-control-helper>
+                <clr-control-error>required!</clr-control-error>
+              </clr-textarea-container>
+
+              <clr-toggle-container>
+                <label>Effect duration</label>
+                <clr-toggle-wrapper>
+                  <input
+                    type="checkbox"
+                    clrToggle
+                    name="options"
+                    required
+                    value="true"
+                    [(ngModel)]="failureCondition.effectIfTrue.forever"
+                  />
+                  <label>For the rest of the game</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+
+              <clr-input-container>
+                <label>Turns *</label>
+                <input
+                  clrInput
+                  name="turns"
+                  type="number"
+                  placeholder="How long this effect lasts"
+                  value="failureCondition.effectIfTrue.turns"
+                  [(ngModel)]="failureCondition.effectIfTrue.turns"
+                  [disabled]="failureCondition.effectIfTrue.forever"
+                  min="1"
+                />
+                <clr-control-error>required!</clr-control-error>
+                <clr-control-helper>If not forever, for how many turns this lasts?</clr-control-helper>
+              </clr-input-container>
+
+              <div style="margin-top: 20px; border-top: 1px solid #dedede"></div>
+
+              <clr-toggle-container>
+                <label>On whom to apply?</label>
+                <clr-toggle-wrapper>
+                  <input
+                    type="checkbox"
+                    clrToggle
+                    name="options"
+                    required
+                    value="true"
+                    [(ngModel)]="failureCondition.effectIfTrue.toSelf"
+                  />
+                  <label>On self player?</label>
+                </clr-toggle-wrapper>
+                <!-- <clr-control-helper>This can be reverted by another effect, however</clr-control-helper> -->
+              </clr-toggle-container>
+
+              <clr-input-container>
+                <label>Specific type of player *</label>
+                <input
+                  clrInput
+                  name="toSpecific"
+                  type="text"
+                  placeholder="e.g, on any player that has x points or more"
+                  value="failureCondition.effectIfTrue.toSpecific"
+                  [(ngModel)]="failureCondition.effectIfTrue.toSpecific"
+                  [disabled]="failureCondition.effectIfTrue.toSelf"
+                />
+                <clr-control-helper>If not on self, on whom?</clr-control-helper>
+              </clr-input-container>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary float-items-right" (click)="addFailureCondition()">Add</button>
+  </div>
+</clr-modal>

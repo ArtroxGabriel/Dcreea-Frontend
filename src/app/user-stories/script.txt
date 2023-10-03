@@ -1,0 +1,10 @@
+
+
+insert into GDD(Description, KnowledgeField, MaxNumberPlayers, MinNumberPlayers, Name, Requirements, TargetAudience, CreatedDate,  IsActive)
+values('project 1 gdd', 'ES', 10, 1, 'gdd', 'requirements', 'target', '12-12-2020', 1);
+
+insert into Games(ProjectName, GddId, CreatedDate,  IsActive)
+values('project 1', 1, '12-12-2020', 1);
+
+insert into State(GameId, Label, CreatedDate,  IsActive)
+values (1, 'State Initial', '12-12-2020', 1);

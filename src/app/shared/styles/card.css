@@ -1,0 +1,206 @@
+/*
+card poker size: 6.985 x 12.065 cm = 1.72 ratio 
+*/
+
+.card-wrapper {
+  /* height: 12.065cm; */
+  /* width: 6.985cm; */
+  border-radius: 0.5rem;
+  background-color: #dedede;
+  border: 1px solid white;
+  color: white;
+}
+
+.card-margins {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.card-game-header {
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid #942929;
+  background-color: rgb(249, 249, 249, 0.7);
+  color: black;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 1%;
+  border: 1px solid white;
+  /* //// */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-game-header-back {
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid #942929;
+  background-color: rgb(249, 249, 249, 0.2);
+  color: white;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 1%;
+  border: 1px solid rgb(249, 249, 249, 0.4);
+  /* //// */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-game-body {
+  width: 100%;
+  height: 78%;
+  min-height: 78%;
+  background-color: rgba(222, 222, 222, 0.2);
+  margin-bottom: 1%;
+}
+
+.card-art {
+  width: 100%;
+  height: 50%;
+  /* centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card-answers {
+  width: 100%;
+  height: 75%;
+  /* centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(222, 222, 222, 0.2);
+  color: white;
+}
+
+.card-description {
+  width: 100%;
+  min-height: 25%;
+  max-height: 50%;
+  /* centering */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(222, 222, 222, 0.2);
+  color: white;
+}
+
+.card-effect {
+  width: 100%;
+  height: 25%;
+  border-top: 1px solid rgb(214, 214, 214);
+  /* centering */
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  background-color: rgba(222, 222, 222, 0.2);
+  color: white;
+}
+.card-game-footer {
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid #dedede;
+  background-color: rgb(249, 249, 249, 0.7);
+  color: black;
+  margin-bottom: 1%;
+  border: 1px solid white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  /* centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-game-footer-back {
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid #dedede;
+  background-color: rgb(249, 249, 249, 0.2);
+  color: white;
+  margin-bottom: 1%;
+  border: 1px solid rgb(249, 249, 249, 0.4);
+  border-radius: 0 0 0.5rem 0.5rem;
+  /* centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* images */
+
+.card-img {
+  width: auto;
+  height: 100%;
+}
+
+/* colors */
+
+.red-card {
+  background-color: #663030;
+}
+
+.green-card {
+  background-color: #30665d;
+}
+
+/* inputs */
+
+.card-input-title {
+  border: 0px;
+  background-color: #dedede;
+  align-self: center;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 1px;
+}
+
+.card-input-footer {
+  border: 0px;
+  background-color: #dedede;
+  align-self: center;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  border-radius: 1px;
+}
+
+.card-text {
+  color: white;
+  font-size: small;
+  line-height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.card-body-text {
+  color: white;
+  font-size: small;
+  line-height: 100%;
+  text-align: center;
+  width: 100%;
+  margin: 0.4rem;
+}
+
+.card-answer-text {
+  color: white;
+  font-size: small;
+  line-height: 100%;
+  text-align: center;
+  width: 100%;
+  margin: 0.2rem 0rem 0.2rem 0.2rem;
+}
+
+p {
+  white-space: normal;
+  width: 100%;
+  overflow: hidden; /* "overflow" value must be different from "visible" */
+  text-overflow: ellipsis;
+}
+
+.centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
