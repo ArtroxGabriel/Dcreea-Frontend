@@ -1,27 +1,25 @@
-# DCREAEFront
+# D-CREEA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+### Author: Rubens Silva
 
-## Development server
+Frontend from D-CREEA
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Fazendo deploy:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Primeiro faça o deploy do backend, o link será necessário para o passo 5
+2. Criar conta no [railway](https://railway.app/) 
+3. Linkar conta do github com o railway
+4. Criar um novo projeto no railway através do repositorio
+5. alterar url_api no ``./scr/environments/environment.ts``
+```ts
+        export const environment = {
+            production: false,
+            url_api: "url_do_backend",
+        };
+```
 
-## Build
+Pronto, o railway fará o deploy **automaticamente** e dentre de alguns minutos terá o link liberado para acesso.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Link Disponivel em**
+> Settings -> Networking -> Public Networking
